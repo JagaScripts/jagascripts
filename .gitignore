@@ -3,6 +3,9 @@ Prompt.md
 Prompts.md
 0*.md
 
+# Images
+Images/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
