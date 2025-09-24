@@ -4,7 +4,8 @@ from config import Config
 
 
 def create_app() -> Flask:
-    app = Flask(__name__)
+    # Disable the default app-level static route to avoid collisions
+    app = Flask(__name__, static_folder=None)
 
     # Load configuration
     app.config.from_object(Config)
