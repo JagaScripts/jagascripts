@@ -1,15 +1,39 @@
+<div align="center">
+  <h1>Hi there 👋 I'm Jose Antonio González Alcántara</h1>
+  <h3>A passionate Full Stack Developer from Spain</h3>
+</div>
 
-<!--
-**JagaScripts/jagascripts** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+### About me
+- 🔭 Currently building: modern, config‑driven web apps (Flask, Docker)
+- 🌱 Learning more about: clean architectures, CI/CD, and cloud deployments
+- 💬 Ask me about: Python, Flask, frontend basics, Docker
+- 📫 Reach me: <a href="mailto:jagascripts@gmail.com">jagascripts@gmail.com</a>
 
-Here are some ideas to get you started:
+### Connect with me
+<div align="left">
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jagascripts/)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jagascripts@gmail.com)
+
+</div>
+
+### Languages and Tools
+
+![Python](https://img.shields.io/badge/-Python-05122A?style=flat&logo=python)
+![Flask](https://img.shields.io/badge/-Flask-05122A?style=flat&logo=flask)
+![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
+![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
+![CSS3](https://img.shields.io/badge/-CSS3-05122A?style=flat&logo=css3&logoColor=1572B6)
+![Docker](https://img.shields.io/badge/-Docker-05122A?style=flat&logo=docker)
+![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)
+![GitHub](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
+![VS Code](https://img.shields.io/badge/-VS%20Code-05122A?style=flat&logo=visual-studio-code&logoColor=007ACC)
+
+### GitHub Stats
+
+<p align="center">
+  <a href="https://github.com/JagaScripts">
+    <img height="160" src="https://github-readme-stats-eight-theta.vercel.app/api?username=JagaScripts&show_icons=true&theme=algolia&include_all_commits=true&count_private=true" alt="JagaScripts GitHub stats" />
+    <img height="160" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=JagaScripts&layout=compact&langs_count=8&theme=algolia" alt="Top languages" />
+  </a>
+</p>
