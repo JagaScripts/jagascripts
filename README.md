@@ -4,9 +4,10 @@
 </div>
 
 ### About me
-- 🔭 Currently building: modern, config‑driven web apps (Flask, Docker)
+- 🔭 Currently building: modern, config‑driven web apps (Flask, Docker, JagaScripts, TypeScripts, Angular, Java)
 - 🌱 Learning more about: clean architectures, CI/CD, and cloud deployments
-- 💬 Ask me about: Python, Flask, frontend basics, Docker
+- 💬 Ask me about: Python, Flask, frontend basics, Docker, Java, Angular...
+- 😄 Pronouns: he/him 
 - 📫 Reach me: <a href="mailto:jagascripts@gmail.com">jagascripts@gmail.com</a>
 
 ### Connect with me
@@ -28,6 +29,20 @@
 ![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)
 ![GitHub](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
 ![VS Code](https://img.shields.io/badge/-VS%20Code-05122A?style=flat&logo=visual-studio-code&logoColor=007ACC)
+![Java](https://img.shields.io/badge/-Java-05122A?style=flat&logo=openjdk)
+![TypeScript](https://img.shields.io/badge/-TypeScript-05122A?style=flat&logo=typescript)
+![Angular](https://img.shields.io/badge/-Angular-05122A?style=flat&logo=angular)
+![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=githubactions)
+![AWS](https://img.shields.io/badge/-AWS-05122A?style=flat&logo=amazon-aws)
+![Google Cloud](https://img.shields.io/badge/-Google%20Cloud-05122A?style=flat&logo=googlecloud)
+![Azure](https://img.shields.io/badge/-Azure-05122A?style=flat&logo=microsoft-azure)
+![Kubernetes](https://img.shields.io/badge/-Kubernetes-05122A?style=flat&logo=kubernetes)
+![Requests](https://img.shields.io/badge/-Requests-05122A?style=flat)
+![FastAPI](https://img.shields.io/badge/-FastAPI-05122A?style=flat&logo=fastapi)
+![DevOps](https://img.shields.io/badge/-DevOps-05122A?style=flat)
+![Grafana](https://img.shields.io/badge/-Grafana-05122A?style=flat&logo=grafana)
+![Prometheus](https://img.shields.io/badge/-Prometheus-05122A?style=flat&logo=prometheus)
+
 
 ### GitHub Stats
 
