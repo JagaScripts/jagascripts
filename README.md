@@ -42,6 +42,10 @@
 ![DevOps](https://img.shields.io/badge/-DevOps-05122A?style=flat)
 ![Grafana](https://img.shields.io/badge/-Grafana-05122A?style=flat&logo=grafana)
 ![Prometheus](https://img.shields.io/badge/-Prometheus-05122A?style=flat&logo=prometheus)
+![Cursor](https://img.shields.io/badge/-Cursor-05122A?style=flat&logo=cursor)
+![GitHub Copilot](https://img.shields.io/badge/-GitHub%20Copilot-05122A?style=flat&logo=githubcopilot)
+![ChatGPT](https://img.shields.io/badge/-ChatGPT-05122A?style=flat&logo=openai)
+![Gemini](https://img.shields.io/badge/-Gemini-05122A?style=flat&logo=googlegemini)
 
 
 ### GitHub Stats
