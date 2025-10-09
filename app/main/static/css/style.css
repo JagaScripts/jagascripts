@@ -1,14 +1,14 @@
 :root {
-  --bg: #0b1220;
+  --bg: #ffffff;
   --panel: #0f1a2b;
-  --text: #d7e3ff;
-  --muted: #7a89a7;
-  --accent: #6ea8fe;
-  --accent-2: #33d1b1;
-  --comment: #5c6a85;
-  --keyword: #ffca80;
-  --variable: #8bd5ff;
-  --string: #7cf1c5;
+  --text: #000000;
+  --muted: #5477bd;
+  --accent: #0063f8;
+  --accent-2: #00ffcc;
+  --comment: #dd0000;
+  --keyword: #ff7700;
+  --variable: #0000ff;
+  --string: #00aa00;
 }
 
 * {
@@ -114,11 +114,11 @@ body {
 .code-block {
   margin: 0;
   padding: 20px;
-  background: rgba(8, 14, 26, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(87, 105, 209, 0.507);
   border-radius: 8px;
   color: var(--text);
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 .comment {
