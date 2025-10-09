@@ -88,7 +88,7 @@ body {
   margin: 12px auto 0;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 24px;
   padding: 24px;
   border-left: 1px solid rgba(255, 255, 255, 0.06);
@@ -115,8 +115,8 @@ body {
   margin: 0;
   padding: 20px;
   background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(87, 105, 209, 0.507);
-  border-radius: 8px;
+  /* border: 1px solid rgba(87, 105, 209, 0.507);
+  border-radius: 8px; */
   color: var(--text);
   /* overflow: auto; */
 }
