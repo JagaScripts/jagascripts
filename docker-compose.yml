@@ -2,7 +2,7 @@ services:
   web:
     build: .
     image: jagascripts/landing:dev
-    command: gunicorn run:app -b 0.0.0.0:8000 -w 2
+    command: gunicorn run:app -b 0.0.0.0:8000 -w 2 --reload
     ports:
       - "8000:8000"
     volumes:
