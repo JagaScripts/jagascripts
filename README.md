@@ -1,6 +1,6 @@
 <div align="center">
   <h1>Hi there 👋 I'm Jose Antonio González Alcántara</h1>
-  <h3>A passionate Full Stack Developer from Spain</h3>
+  <h3>A passionate Python Backend Developer from Spain</h3>
 </div>
 
 ### About me
