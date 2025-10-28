@@ -4,9 +4,9 @@
 </div>
 
 ### About me
-- 🔭 Currently building: modern, config‑driven web apps (Flask, Docker, JagaScripts, TypeScripts, Angular, Java)
+- 🔭 Currently building: modern, config‑driven web apps (Fast API, SQL, Flask, Docker, JagaScripts, TypeScripts, Angular, Java)
 - 🌱 Learning more about: clean architectures, CI/CD, and cloud deployments
-- 💬 Ask me about: Python, Flask, frontend basics, Docker, Java, Angular...
+- 💬 Ask me about: Python, Flask, Fast API, SQL, Backend basics, Docker, Java, Angular...
 - 😄 Pronouns: he/him 
 - 📫 Reach me: <a href="mailto:jagascripts@gmail.com">jagascripts@gmail.com</a>
 
