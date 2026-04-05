@@ -8,7 +8,7 @@ class Config:
 
     # Content Variables
     FULL_NAME = "Jose Antonio González Alcántara"
-    JOB_TITLE = "Full Stack Developer"
+    JOB_TITLE = "PYTHON BACKEND DEVELOPER | AI | CLOUD COMPUTING | DEVOPS"
     PHONE_NUMBER = "695375698"
     EMAIL_ADDRESS = "jagascripts@gmail.com"
 

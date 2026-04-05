@@ -129,7 +129,8 @@ body {
   align-items: flex-start;
   justify-content: center;
   /* Centrado vertical */
-  padding: 40px 24px;
+  padding: 40px 24px 100px;
+  /* <--- He añadido 100px abajo para subirlo */
   flex-grow: 1;
   /* Ocupa todo el espacio entre header y footer */
   padding-left: 10%;
@@ -141,6 +142,11 @@ body {
   width: 100%;
 }
 
+.code-snippet {
+  margin-top: 70px;
+  /* <--- Esto separa el código del título hacia abajo */
+}
+
 .hey {
   color: var(--muted);
 }
@@ -149,6 +155,7 @@ body {
   font-weight: 600;
   font-size: clamp(28px, 4vw, 56px);
   margin: 8px 0 6px;
+  white-space: nowrap;
 }
 
 .role {
