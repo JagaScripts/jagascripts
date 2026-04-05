@@ -152,9 +152,20 @@ body {
 }
 
 .name {
-  font-weight: 600;
+  font-weight: 700;
   font-size: clamp(28px, 4vw, 56px);
   margin: 8px 0 6px;
+  white-space: nowrap;
+}
+
+.name .initial {
+  color: var(--keyword);
+}
+
+.alias {
+  font-weight: 600;
+  color: var(--keyword);
+  margin: 0 0 24px;
   white-space: nowrap;
 }
 
@@ -162,6 +173,7 @@ body {
   font-weight: 500;
   color: var(--accent);
   margin: 0 0 24px;
+  white-space: nowrap;
 }
 
 /* .code-block {
@@ -191,7 +203,7 @@ body {
 }
 
 .code-snippet .line {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   /* <-- Ajusta esto para la separación de líneas */
 }
 
