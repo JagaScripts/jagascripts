@@ -179,7 +179,14 @@ body {
   gap: 0;
   color: var(--muted);
   height: 100%;
-  padding-left: 10px;
+}
+
+.site-footer .left span {
+  padding: 0 16px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .site-footer .icon {
