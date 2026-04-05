@@ -123,12 +123,22 @@ body {
 }
 
 .hero {
-  margin-top: 12px;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  /* Centrado vertical */
+  padding: 40px 24px;
+  flex-grow: 1;
+  /* Ocupa todo el espacio entre header y footer */
+  padding-left: 10%;
+}
+
+.intro {
+  max-width: 800px;
+  /* Evita que el texto se estire infinito */
+  width: 100%;
 }
 
 .hey {
@@ -171,6 +181,11 @@ body {
 
 .string {
   color: var(--string);
+}
+
+.code-snippet .line {
+  margin-bottom: 8px;
+  /* <-- Ajusta esto para la separación de líneas */
 }
 
 .site-footer .left {
