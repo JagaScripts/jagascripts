@@ -36,35 +36,30 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(35rem 35rem at 65% 30%, rgba(51, 209, 177, 0.25), transparent 60%),
-    radial-gradient(45rem 45rem at 80% 60%, rgba(110, 168, 254, 0.22), transparent 60%),
-    radial-gradient(30rem 30rem at 35% 40%, rgba(123, 92, 255, 0.18), transparent 60%);
-  filter: blur(48px);
+  background: radial-gradient(40rem 40rem at 65% 30%, rgba(51, 209, 177, 0.45), transparent 70%),
+    radial-gradient(50rem 50rem at 80% 60%, rgba(110, 168, 254, 0.42), transparent 70%),
+    radial-gradient(35rem 35rem at 35% 40%, rgba(123, 92, 255, 0.38), transparent 70%);
+  filter: blur(60px);
+  mix-blend-mode: multiply;
+  opacity: 0.8;
   transform: translateZ(0);
+  z-index: -1;
 }
 
 .site-header {
-  max-width: 1200px;
-  margin: 0 auto;
   width: 100%;
   display: flex;
   align-items: center;
   padding: 0;
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
 
 .site-footer {
-  max-width: 1200px;
-  margin: 0 auto;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0;
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
   border-top: 1px solid var(--border);
 }
 
@@ -128,8 +123,7 @@ body {
 }
 
 .hero {
-  max-width: 1200px;
-  margin: 12px auto 0;
+  margin-top: 12px;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
@@ -156,11 +150,11 @@ body {
 .code-block {
   margin: 0;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.8);
-  /* border: 1px solid rgba(87, 105, 209, 0.507);
-  border-radius: 8px; */
+  background: rgba(255, 255, 255, 0.15); /* Mucho más transparente */
+  backdrop-filter: blur(12px); /* Efecto de cristal para que se vea la aurora */
+  border: 1px solid var(--border);
+  border-radius: 8px;
   color: var(--text);
-  /* overflow: auto; */
 }
 
 .comment {
