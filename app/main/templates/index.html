@@ -36,18 +36,21 @@
       <p class="hey">Hi all. I am</p>
       <h1 class="name">{{ context.FULL_NAME }}</h1>
       <h2 class="role">&gt; {{ context.JOB_TITLE }}</h2>
+      <span class="comment">// my number</span>
+      <span class="keyword">const</span> <span class="variable">telephoneNum</span> = <span class="string">"{{
+        context.PHONE_NUMBER }}"</span>;
+      <span class="comment">// my e-mail</span>
+      <span class="keyword">const</span> <span class="variable">email</span> = <span class="string">"{{
+        context.EMAIL_ADDRESS }}"</span>;
+      <span class="comment">// you can also see it on my Github page</span>
+      <span class="keyword">const</span> <span class="variable">githubLink</span> = <span class="string">"{{
+        context.GITHUB_URL }}"</span>;
+      <span class="comment">// you can check my Linkedin Page</span>
+      <span class="keyword">const</span> <span class="variable">linkedinPage</span> = <span class="string">"{{
+        context.LINKEDIN_URL }}"</span>;
     </div>
 
-    <pre class="code-block"><code>
-<span class="comment">// my number</span>
-<span class="keyword">const</span> <span class="variable">telephoneNum</span> = <span class="string">"{{ context.PHONE_NUMBER }}"</span>;
-<span class="comment">// my e-mail</span>
-<span class="keyword">const</span> <span class="variable">email</span> = <span class="string">"{{ context.EMAIL_ADDRESS }}"</span>;
-<span class="comment">// you can also see it on my Github page</span>
-<span class="keyword">const</span> <span class="variable">githubLink</span> = <span class="string">"{{ context.GITHUB_URL }}"</span>;
-<span class="comment">// you can check my Linkedin Page</span>
-<span class="keyword">const</span> <span class="variable">linkedinPage</span> = <span class="string">"{{ context.LINKEDIN_URL }}"</span>;
-      </code></pre>
+    <!-- <pre class="code-block"><code></code></pre> -->
   </main>
 
   <footer class="site-footer">
