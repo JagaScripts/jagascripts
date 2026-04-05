@@ -36,9 +36,9 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(40rem 40rem at 65% 30%, rgba(51, 209, 177, 0.45), transparent 70%),
-    radial-gradient(50rem 50rem at 80% 60%, rgba(110, 168, 254, 0.42), transparent 70%),
-    radial-gradient(35rem 35rem at 35% 40%, rgba(123, 92, 255, 0.38), transparent 70%);
+  background: radial-gradient(40rem 40rem at 95% 20%, rgba(51, 209, 177, 0.45), transparent 70%),
+    radial-gradient(50rem 50rem at 75% 40%, rgba(110, 168, 254, 0.42), transparent 70%),
+    radial-gradient(35rem 35rem at 55% 70%, rgba(123, 92, 255, 0.38), transparent 70%);
   filter: blur(60px);
   mix-blend-mode: multiply;
   opacity: 0.8;
@@ -147,15 +147,15 @@ body {
   margin: 0 0 24px;
 }
 
-.code-block {
+/* .code-block {
   margin: 0;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.15); /* Mucho más transparente */
-  backdrop-filter: blur(12px); /* Efecto de cristal para que se vea la aurora */
+  background: rgba(255, 255, 255, 0.15); Mucho más transparente */
+/* backdrop-filter: blur(12px); Efecto de cristal para que se vea la aurora
   border: 1px solid var(--border);
   border-radius: 8px;
   color: var(--text);
-}
+} */
 
 .comment {
   color: var(--comment);
@@ -179,6 +179,7 @@ body {
   gap: 0;
   color: var(--muted);
   height: 100%;
+  padding-left: 10px;
 }
 
 .site-footer .icon {
