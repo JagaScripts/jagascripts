@@ -36,26 +36,29 @@
       <p class="hey">Hi all. I am</p>
       <h1 class="name">{{ context.FULL_NAME }}</h1>
       <h2 class="role">&gt; {{ context.JOB_TITLE }}</h2>
-      
+
       <div class="code-snippet">
         <div class="line"><span class="comment">// my number</span></div>
         <div class="line">
-          <span class="keyword">const</span> <span class="variable">telephoneNum</span> = <span class="string">"{{ context.PHONE_NUMBER }}"</span>;
+          <span class="variable">telephoneNum</span> <span class="keyword">str</span> = <span class="string">"{{
+            context.PHONE_NUMBER }}"</span>;
         </div>
-        
         <div class="line"><span class="comment">// my e-mail</span></div>
         <div class="line">
-          <span class="keyword">const</span> <span class="variable">email</span> = <span class="string">"{{ context.EMAIL_ADDRESS }}"</span>;
+          <span class="variable">email</span> <span class="keyword">str</span> = <span class="string">"{{
+            context.EMAIL_ADDRESS }}"</span>;
         </div>
-        
+
         <div class="line"><span class="comment">// you can also see it on my Github page</span></div>
         <div class="line">
-          <span class="keyword">const</span> <span class="variable">githubLink</span> = <span class="string">"{{ context.GITHUB_URL }}"</span>;
+          <span class="variable">githubLink</span> <span class="keyword">str</span> = <span class="string">"{{
+            context.GITHUB_URL }}"</span>;
         </div>
-        
+
         <div class="line"><span class="comment">// you can check my Linkedin Page</span></div>
         <div class="line">
-          <span class="keyword">const</span> <span class="variable">linkedinPage</span> = <span class="string">"{{ context.LINKEDIN_URL }}"</span>;
+          <span class="variable">linkedinPage</span> <span class="keyword">str</span> = <span class="string">"{{
+            context.LINKEDIN_URL }}"</span>;
         </div>
       </div>
     </div>
