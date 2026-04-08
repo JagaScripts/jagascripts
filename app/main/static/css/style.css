@@ -151,10 +151,33 @@ body {
   color: var(--muted);
 }
 
+.branding-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  /* <--- FORZAMOS una sola línea */
+  gap: 8px;
+  /* <--- Reducimos espacio entre palabras */
+  margin-bottom: 24px;
+}
+
+.branding-pair {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.branding-pair {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .name {
   font-weight: 700;
-  font-size: clamp(28px, 4vw, 56px);
-  margin: 8px 0 6px;
+  font-size: clamp(22px, 3.5vw, 46px); /* Ajustamos ligeramente para asegurar espacio */
+  margin: 0;
   white-space: nowrap;
 }
 
@@ -165,8 +188,30 @@ body {
 .alias {
   font-weight: 600;
   color: var(--keyword);
-  margin: 0 0 24px;
+  margin: 0;
   white-space: nowrap;
+  font-size: 24px;
+}
+
+.branding-pair.suffix {
+  margin-top: 0;
+  padding: 0;
+  margin-left: 15px;
+  display: flex;
+  align-items: flex-end;
+  overflow: visible; /* Aseguramos que el rabo de la p no se corte si baja mucho */
+}
+
+.alias-suffix {
+  font-weight: 700;
+  color: var(--keyword) !important;
+  font-size: 94px;
+  line-height: 0.65; /* Apretamos más para ganar altura visual */
+  margin: 0;
+  white-space: nowrap;
+  letter-spacing: -3px;
+  transform: translateY(18px); /* <--- Bajamos más para que la base de las letras sea el suelo */
+  display: block;
 }
 
 .role {

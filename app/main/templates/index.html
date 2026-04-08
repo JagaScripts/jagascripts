@@ -34,13 +34,29 @@
   <main class="hero">
     <div class="intro">
       <p class="hey">Hi all. I am</p>
-      <h1 class="name">
-        {% for word in context.FULL_NAME.split(' ') %}
-        <span class="initial">{{ word[0] }}</span>{{ word[1:] }}{% if not loop.last %} {% endif %}
+      
+      {% set name_words = context.FULL_NAME.split(' ') %}
+      {% set alias_letters = "JAGA" %}
+      
+      <div class="branding-container">
+        {% for i in range(name_words|length) %}
+        <div class="branding-pair">
+          <h1 class="name">
+            <span class="initial">{{ name_words[i][0] }}</span>{{ name_words[i][1:] }}
+          </h1>
+          <h2 class="alias">
+            {{ alias_letters[i] if i < alias_letters|length else "" }}
+          </h2>
+        </div>
         {% endfor %}
-      </h1>
+        
+        {# Parte final del alias #}
+        <div class="branding-pair suffix">
+          <h2 class="alias-suffix">{{ context.ALIAS_NAME.replace('JAGA', '').strip() }}</h2>
+        </div>
+      </div>
     </div>
-    <h2 class="alias">{{ context.ALIAS_NAME }}</h2>
+    
     <h3 class="role">&gt; {{ context.JOB_TITLE }}</h3>
 
     <div class="code-snippet">

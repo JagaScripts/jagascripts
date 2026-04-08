@@ -9,7 +9,7 @@ class Config:
     # Content Variables
     FULL_NAME = "Jose Antonio González Alcántara"
     JOB_TITLE = "Python Backend & AI Developer, Cloud Computing & DevOps Expert"
-    ALIAS_NAME = 'JAGA Scripts "JagaScripts"'
+    ALIAS_NAME = "JAGA Scripts"
     PHONE_NUMBER = "695375698"
     EMAIL_ADDRESS = "jagascripts@gmail.com"
 
