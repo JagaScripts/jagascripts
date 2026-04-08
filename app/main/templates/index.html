@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ context.USERNAME }} — _hello</title>
+  <title>{{ context.USERNAME }} — portfolio</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,106 +23,250 @@
     <div class="brand">{{ context.USERNAME }}</div>
     <nav class="nav">
       <ul>
-        <li class="active"><a href="#">_hello</a></li>
-        <li><a href="#about">_about-me</a></li>
+        <li class="active"><a href="#" id="nav-hello">_hello</a></li>
+        <li><a href="#about" id="nav-about">_about-me</a></li>
         <li><a href="#projects">_projects</a></li>
         <li><a href="#contact">_contact-me</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="hero">
-    <div class="intro">
-      <p class="hey">Hi all. I am</p>
+  <main class="main-content">
+    
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="intro">
+        <p class="hey">Hi all. I am</p>
+        
+        {% set name_words = context.FULL_NAME.split(' ') %}
+        {% set alias_letters = "JAGA" %}
+        
+        <div class="branding-container">
+          {% for i in range(name_words|length) %}
+          <div class="branding-pair">
+            <h1 class="name">
+              <span class="initial">{{ name_words[i][0] }}</span>{{ name_words[i][1:] }}
+            </h1>
+            <h2 class="alias">
+              {{ alias_letters[i] if i < alias_letters|length else "" }}
+            </h2>
+          </div>
+          {% endfor %}
+          
+          <div class="branding-pair suffix">
+            <h2 class="alias-suffix">{{ context.ALIAS_NAME.replace('JAGA', '').strip() }}</h2>
+          </div>
+        </div>
+        
+        <h3 class="role">&gt; {{ context.JOB_TITLE }}</h3>
+      </div>
+
+      <div class="code-snippet">
+        <div class="line"><span class="comment">// my number</span></div>
+        <div class="line">
+          <span class="variable">telephoneNum:</span> <span class="keyword">str</span> = <span class="string">"{{ context.PHONE_NUMBER }}"</span>;
+        </div>
+        <div class="line"><span class="comment">// my e-mail</span></div>
+        <div class="line">
+          <span class="variable">email:</span> <span class="keyword">str</span> = <span class="string">"{{ context.EMAIL_ADDRESS }}"</span>;
+        </div>
+        <div class="line"><span class="comment">// you can also see it on my Github page</span></div>
+        <div class="line">
+          <span class="variable">githubLink:</span> <span class="keyword">str</span> = <span class="string">"{{ context.GITHUB_URL }}"</span>;
+        </div>
+        <div class="line"><span class="comment">// you can check my Linkedin Page</span></div>
+        <div class="line">
+          <span class="variable">linkedinPage:</span> <span class="keyword">str</span> = <span class="string">"{{ context.LINKEDIN_URL }}"</span>;
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-panel" style="display: none;">
       
-      {% set name_words = context.FULL_NAME.split(' ') %}
-      {% set alias_letters = "JAGA" %}
-      
-      <div class="branding-container">
-        {% for i in range(name_words|length) %}
-        <div class="branding-pair">
-          <h1 class="name">
-            <span class="initial">{{ name_words[i][0] }}</span>{{ name_words[i][1:] }}
-          </h1>
-          <h2 class="alias">
-            {{ alias_letters[i] if i < alias_letters|length else "" }}
-          </h2>
+      <!-- Activity Bar -->
+      <aside class="activity-bar">
+        <div class="activity-icon active" title="Explorer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+        </div>
+        <div class="activity-icon" title="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </div>
+        <div class="activity-icon placeholder" title="Chatbot próximamente">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+        </div>
+      </aside>
+
+      <!-- Sidebar: explorer -->
+      <aside class="about-sidebar">
+        <div class="tree-section">
+          <span class="tree-folder tree-folder--open" id="toggle-personal">
+            <svg class="tree-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+            personal-info
+          </span>
+          <div class="tree-children" id="personal-children">
+            <span class="tree-file tree-file--active" data-file="bio">
+              <svg class="tree-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              bio
+            </span>
+            <span class="tree-folder" id="toggle-education">
+              <svg class="tree-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+              education
+            </span>
+            <div class="tree-children tree-children--hidden" id="education-children">
+              {% for item in context.EDUCATION_ITEMS %}
+              <span class="tree-file" data-file="edu-{{ loop.index0 }}">
+                <svg class="tree-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                {{ item.label }}
+              </span>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <div class="tree-section tree-section--contacts">
+          <span class="tree-folder tree-folder--open">
+            <svg class="tree-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+            contacts
+          </span>
+          <div class="tree-children">
+            <span class="contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              {{ context.EMAIL_ADDRESS }}
+            </span>
+            <span class="contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.1 6.1l1.18-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              {{ context.PHONE_NUMBER }}
+            </span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Editor -->
+      <div class="about-editor">
+        <div class="editor-tabs">
+          <span class="editor-tab" id="editor-tab-label">bio <span class="tab-close">×</span></span>
+        </div>
+        <div class="editor-body">
+          <div class="line-numbers" id="line-numbers">
+            {% for line in context.BIO_LINES %}<span>{{ loop.index }}</span>{% endfor %}
+          </div>
+          {% autoescape false %}
+          <pre class="editor-content" id="editor-content"><span class="e-comment">/**</span>
+{% for line in context.BIO_LINES %}<span class="e-line"> * <span class="e-tag">{{ line | replace('[Experiencia]', '<span class="e-keyword">[Experiencia]</span>') | replace('[Trayectoria]', '<span class="e-keyword">[Trayectoria]</span>') | replace('[Formacion]', '<span class="e-keyword">[Formación]</span>') | replace('[Formación]', '<span class="e-keyword">[Formación]</span>') | replace('[Motivacion]', '<span class="e-keyword">[Motivación]</span>') }}</span></span>
+{% endfor %}<span class="e-comment"> */</span></pre>
+          {% endautoescape %}
+        </div>
+      </div>
+
+      <!-- Right panel: skills -->
+      <div class="about-skills">
+        {% for section_title, skills in context.SKILLS.items() %}
+        <div class="skills-section">
+          <p class="skills-title"><span class="e-comment">// {{ section_title }}</span></p>
+          <div class="skills-grid">
+            {% for skill in skills %}
+            <label class="skill-item">
+              <input type="checkbox" checked disabled>
+              <span class="skill-icon" data-skill="{{ skill }}"></span>
+              <span class="skill-name">{{ skill }}</span>
+            </label>
+            {% endfor %}
+          </div>
         </div>
         {% endfor %}
-        
-        {# Parte final del alias #}
-        <div class="branding-pair suffix">
-          <h2 class="alias-suffix">{{ context.ALIAS_NAME.replace('JAGA', '').strip() }}</h2>
-        </div>
       </div>
-    </div>
-    
-    <h3 class="role">&gt; {{ context.JOB_TITLE }}</h3>
 
-    <div class="code-snippet">
-      <div class="line"><span class="comment">// my number</span></div>
-      <div class="line">
-        <span class="variable">telephoneNum:</span> <span class="keyword">str</span> = <span class="string">"{{
-          context.PHONE_NUMBER }}"</span>;
-      </div>
-      <div class="line"><span class="comment">// my e-mail</span></div>
-      <div class="line">
-        <span class="variable">email:</span> <span class="keyword">str</span> = <span class="string">"{{
-          context.EMAIL_ADDRESS }}"</span>;
-      </div>
-      <div class="line"><span class="comment">// you can also see it on my Github page</span></div>
-      <div class="line">
-        <span class="variable">githubLink:</span> <span class="keyword">str</span> = <span class="string">"{{
-          context.GITHUB_URL }}"</span>;
-      </div>
-      <div class="line"><span class="comment">// you can check my Linkedin Page</span></div>
-      <div class="line">
-        <span class="variable">linkedinPage:</span> <span class="keyword">str</span> = <span class="string">"{{
-          context.LINKEDIN_URL }}"</span>;
-      </div>
-    </div>
-    </div>
-
-    <!-- <pre class="code-block"><code></code></pre> -->
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="left">
       <span>find me in:</span>
       <a class="icon" href="{{ context.LINKEDIN_URL }}" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <!-- Feather Icons: linkedin -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-          <rect x="2" y="9" width="4" height="12"></rect>
-          <circle cx="4" cy="4" r="2"></circle>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
       </a>
       <a class="icon" href="{{ context.GITHUB_URL }}" target="_blank" rel="noopener" aria-label="GitHub">
-        <!-- Feather Icons: github -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path
-            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-          </path>
-        </svg>
-      </a>
-
-    </div>
-    <div class="right" style="display: flex; align-items: center; gap: 10px;">
-      <a href="{{ context.GITHUB_URL }}" target="_blank" rel="noopener">{{ context.GITHUB_HANDLE }}</a>
-      <a class="icon" href="{{ context.GITHUB_URL }}" target="_blank" rel="noopener" aria-label="GitHub">
-        <!-- Feather Icons: github -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path
-            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-          </path>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
       </a>
     </div>
-
+    <div class="right">
+      <a href="{{ context.GITHUB_URL }}" target="_blank" rel="noopener">@{{ context.GITHUB_HANDLE }}</a>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+    </div>
   </footer>
-</body>
 
+  <script>
+    (function () {
+      const hero = document.querySelector('.hero');
+      const about = document.getElementById('about');
+      const navHello = document.getElementById('nav-hello');
+      const navAbout = document.getElementById('nav-about');
+      const navLinks = document.querySelectorAll('.nav li');
+
+      function switchSection(target) {
+        if (target === 'about') {
+          hero.style.display = 'none';
+          about.style.display = 'grid';
+          navLinks.forEach(li => li.classList.remove('active'));
+          navAbout.parentElement.classList.add('active');
+        } else {
+          hero.style.display = 'flex';
+          about.style.display = 'none';
+          navLinks.forEach(li => li.classList.remove('active'));
+          navHello.parentElement.classList.add('active');
+        }
+      }
+
+      navAbout.addEventListener('click', e => { e.preventDefault(); switchSection('about'); });
+      navHello.addEventListener('click', e => { e.preventDefault(); switchSection('hello'); });
+
+      // TOGGLES SIDEBAR
+      document.getElementById('toggle-education').addEventListener('click', function() {
+        const list = document.getElementById('education-children');
+        const isHidden = list.classList.toggle('tree-children--hidden');
+        this.querySelector('svg path').setAttribute('d', isHidden ? 'M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z' : 'M7 10l5 5 5-5z');
+      });
+
+      // EDITOR SWITCHER
+      const editorContent = document.getElementById('editor-content');
+      const tabLabel = document.getElementById('editor-tab-label');
+      const lineNums = document.getElementById('line-numbers');
+      const bioBackup = editorContent.innerHTML;
+      const bioLines = lineNums.innerHTML;
+
+      document.querySelectorAll('[data-file]').forEach(el => {
+        el.addEventListener('click', function() {
+          document.querySelectorAll('.tree-file').forEach(f => f.classList.remove('tree-file--active'));
+          this.classList.add('tree-file--active');
+          const file = this.dataset.file;
+
+          if (file === 'bio') {
+            tabLabel.innerHTML = 'bio <span class="tab-close">×</span>';
+            editorContent.innerHTML = bioBackup;
+            lineNums.innerHTML = bioLines;
+          } else if (file.startsWith('edu-')) {
+            const idx = parseInt(file.split('-')[1]);
+            const items = {{ context.EDUCATION_ITEMS | tojson | safe }};
+            const item = items[idx];
+            tabLabel.innerHTML = item.label + ' <span class="tab-close">×</span>';
+            const lines = [item.label, item.sub];
+            editorContent.innerHTML = '<span class="e-comment">/**</span>\n' + lines.map(l => '<span class="e-line"> * ' + l + '</span>').join('\n') + '\n<span class="e-comment"> */</span>';
+            lineNums.innerHTML = '<span>1</span><span>2</span><span>3</span><span>4</span>';
+          }
+        });
+      });
+
+      // SKILL ICONS (Simple SVG mapping)
+      const icons = {
+        'Python': '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>',
+        'default': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>'
+      };
+      document.querySelectorAll('.skill-icon').forEach(span => {
+        span.innerHTML = icons[span.dataset.skill] || icons['default'];
+      });
+
+    })();
+  </script>
+</body>
 </html>
