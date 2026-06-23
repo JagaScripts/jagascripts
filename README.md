@@ -41,6 +41,7 @@ He organizado mis proyectos más relevantes clasificados por la etapa formativa 
 - **[02. RAG & Bases de Datos Vectoriales](./02_RAG_Vectoriales)**: Implementación de Recuperación Aumentada por Generación utilizando modelos de lenguaje open-source y Qdrant.
 - **[03. Agente de Voz Conversacional (Dialogflow)](./03_Agente_Voz_Conversacional)**: Asistente virtual basado en IA conversacional, automatización de diálogos y síntesis de voz.
 - **[04. API REST de Alto Rendimiento (FastAPI)](./04_API_REST_FastAPI)**: Arquitectura backend en Python aplicando principios SOLID y código limpio.
+- **[10. Diseño de Arquitecturas Cloud y Servicios de IA](./10_Arquitectura_con_IA)**: Diseños arquitectónicos empresariales en AWS/Azure para IA, RAG, Voicebots y plataformas documentales seguras.
 
 ### 💻 Bootcamp Full-Stack Web (Java & Angular)
 *Proyectos de arquitectura Cliente-Servidor y desarrollo web responsivo.*
