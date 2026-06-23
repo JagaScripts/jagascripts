@@ -1,0 +1,35 @@
+{
+    "family": "phishing-detect-task",
+    "containerDefinitions": [
+        {
+            "name": "app",
+            "image": "993391629553.dkr.ecr.eu-north-1.amazonaws.com/phishing-detect-repo:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 8000,
+                    "hostPort": 8000,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/phishing-detect/app",
+                    "awslogs-region": "eu-north-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "cpu": "256",
+    "memory": "512",
+    "executionRoleArn": "arn:aws:iam::993391629553:role/phishing-detect-execution-role",
+    "taskRoleArn": "arn:aws:iam::993391629553:role/phishing-detect-task-role"
+}

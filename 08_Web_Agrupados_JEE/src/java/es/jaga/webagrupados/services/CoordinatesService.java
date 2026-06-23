@@ -118,7 +118,7 @@ public class CoordinatesService {
         NodeList resultNodeList;
         Document geocoderResultDocument;
         try {
-            URL url = new URL(GEOCODER_REQUEST_PREFIX_FOR_XML + "?latlng=" + latitude + "," + longitude + "+CA&key=AIzaSyDGUvRjuQmIf43Kt-78z4rofX54odK5U6Q");
+            URL url = new URL(GEOCODER_REQUEST_PREFIX_FOR_XML + "?latlng=" + latitude + "," + longitude + "+CA&key=API_KEY_HIDDEN");
             conn = (HttpURLConnection) url.openConnection();
             conn.connect();
             InputSource geocoderResultInputSource = new InputSource(conn.getInputStream());

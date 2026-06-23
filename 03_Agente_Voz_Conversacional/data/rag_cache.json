@@ -1,0 +1,18 @@
+{
+    "La 1.": "No se puede borrar la huella dactilar actual.",
+    "La 1. Hikvision": "La 1. Hikvision.",
+    "La dos. EZVIZ": "Descargue e instale la aplicación buscando \"EZVIZ\" en la App Store o Google Play. Conecte su teléfono a la red Wi-Fi y luego inicie la aplicación para registrar una cuenta de usuario.",
+    "La 3. Hama": "Para configurar la aplicación, descárgala de Apple App Store o Google Play. Luego, ábrela y regístrate o inicia sesión.",
+    "La 3, la 3, la 3. Hama": "Para borrar la contraseña, presiona 22#, ingresa el número de la contraseña y presiona #, luego presiona # nuevamente.",
+    "La 3, la 3. Hama": "Para borrar una contraseña, ingresa al menú presionando 22#, luego introduce el número de la contraseña a borrar y presiona #. Finalmente, presiona # nuevamente cuando el número de contraseña parpadee.",
+    "La cuatro. Ferguson": "Lo siento, no he encontrado instrucciones específicas para ese equipo en los manuales.",
+    "La 5. muvit iO": "Descarga la aplicación \"muvit iO Home\" desde App Store o Google Play. Escanea el código QR o busca la aplicación.",
+    "Las 5. muvit iO": "Para vincular tu cuenta \"muvit iO Home\" con Alexa, ve a \"Skills y juegos\", busca \"muvit iO Home\" y pulsa \"PERMITIR SU USO\".",
+    "selection_ezviz_": "Asegúrate de que la aplicación sea la última versión buscando \"EZVIZ\" en la App Store. Para agregar la cerradura, primero conecta la puerta de enlace a la fuente de alimentación.",
+    "menu_hikvision": "Para la cámara DS-2CE10DFT-F, conecta la fuente de voltaje de 12 VDC y el balun al cable UTP/Coaxial. Luego, conecta el balun al grabador de video.",
+    "menu_ezviz": "Para agregar tu cerradura a la aplicación, primero asegúrate de que la puerta de enlace esté conectada y ubicada estratégicamente para una conexión estable. Conecta la puerta de enlace a la fuente de alimentación.",
+    "menu_hama": "La bombilla no es regulable y solo es apta para ambientes secos. Si la bombilla presenta daños, humo, olor o ruidos fuertes, desconéctela y contacte a su proveedor. Permita que la bombilla se enfríe antes de manipularla.",
+    "menu_ferguson": "Lo siento, no he encontrado instrucciones específicas para ese equipo en los manuales.",
+    "la cuatro enchufe ferguson ferguson": "Lo siento, no he encontrado instrucciones específicas para ese equipo en los manuales.",
+    "menu_muvit_io": "Para vincular tu cuenta, descarga la app \"muvit iO Home\", escanea el código QR o búscalo en tu tienda de aplicaciones. Luego, sigue las instrucciones para vincular tu cuenta en la app."
+}

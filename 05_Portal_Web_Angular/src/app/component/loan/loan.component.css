@@ -1,0 +1,127 @@
+body {
+  background-color: #f7f6f6
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.card {
+  border: none;
+  box-shadow: 5px 6px 6px 9px #e9ecef;
+  border-radius: 12px;
+}
+
+
+#cat {
+  font-size: 20px;
+  margin: 0px;
+}
+
+#disp {
+  font-size: 20px;
+}
+
+#author {
+  color: #c2185cde;
+}
+
+#isbn {
+  margin-left: 100px;
+}
+
+.form-right i {
+  font-size: 100px;
+}
+
+/* #rating {
+  margin-left: 80px;
+  padding-left: 18px;
+} */
+
+#tiny {
+  padding-bottom: 3px;
+  width: 17px;
+}
+
+label {
+  padding-bottom: 2px;
+  font-size: 18px;
+}
+
+span {
+  margin-left: 2px;
+}
+
+#change {
+  background-color: #FF4081;
+  margin-left: 1px;
+}
+
+#change:hover {
+  background-color: #F8BBd0;
+}
+
+
+
+.card {
+
+  border: none;
+  box-shadow: 5px 6px 6px 9px #e9ecef;
+  border-radius: 4px;
+}
+
+
+.product {
+  object-fit: cover;
+  width: 20em;
+  height: 20em;
+  border-radius: 100%;
+}
+
+.rightside {
+  background-color: #ffffff;
+  width: 35rem;
+  border-bottom-right-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  padding: 1rem 2rem 3rem 3rem;
+}
+
+p {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: .8rem 0;
+}
+
+.inputbox {
+  color: #030303;
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 1.5px solid #ccc;
+  margin-bottom: 1rem;
+  border-radius: 0.3rem;
+  font-family: 'Roboto', sans-serif;
+  color: #615a5a;
+  font-size: 1.1rem;
+  font-weight: 500;
+  outline: none;
+}
+
+.expcvv {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.6rem;
+}
+
+.expcvv_text {
+  padding-right: 1rem;
+}
+
+.expcvv_text2 {
+  padding: 0 1rem;
+}

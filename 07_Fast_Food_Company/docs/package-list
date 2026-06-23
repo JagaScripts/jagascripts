@@ -1,0 +1,6 @@
+es.jaga.fastfoodcompany.controlador
+es.jaga.fastfoodcompany.modelo.entidades
+es.jaga.fastfoodcompany.modelo.entidades.gestiondb.core
+es.jaga.fastfoodcompany.modelo.entidades.gestiondb.services
+es.jaga.fastfoodcompany.principal
+es.jaga.fastfoodcompany.vista
