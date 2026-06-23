@@ -12,12 +12,21 @@ Busco constantemente aplicar la automatización inteligente para reducir tiempos
 
 ## 📌 Sobre este repositorio (Monorepo)
 
-Este perfil tiene un propósito dual: actúa como portafolio profesional y como un espacio para documentar la aplicación de arquitecturas modernas. Todos los proyectos clave están integrados en este monorepo.
+Este perfil tiene un propósito dual: actúa como portafolio profesional y como un espacio para documentar la aplicación de arquitecturas modernas. Todos los proyectos clave están integrados en este monorepo. Además, este espacio tiene una **clara vocación educativa y de comunidad**: mi objetivo es que el código, las decisiones de diseño y las soluciones aquí expuestas sirvan de referencia para ayudar a otros desarrolladores a construir sistemas robustos con un enfoque directo hacia el impacto en negocio.
 
 Aquí encontrarás proyectos centrados en:
 - Integración de Inteligencia Artificial (LLMs, Computer Vision, RAG).
 - Construcción de APIs y backend orientados a microservicios.
 - Automatización de infraestructuras y despliegues (DevOps).
+
+<br>
+
+## 🧠 Filosofía de Trabajo
+
+- **Enfoque en el problema, no solo en la herramienta:** Priorizo entender la necesidad real del negocio antes de elegir la tecnología, buscando siempre aportar el mayor impacto y claridad sobre la complejidad técnica.
+- **Arquitecturas Limpias y Escalables:** Apuesto por la estabilidad, el código limpio (SOLID) y las soluciones seguras por encima de la sobreingeniería.
+- **Automatización primero:** Desde pipelines de IA (procesamiento masivo de documentos vía OCR) hasta integraciones CI/CD, busco automatizar y reducir drásticamente el trabajo manual.
+- **Resolución crítica y adaptabilidad:** Capacidad demostrada para lidiar con ecosistemas complejos y datos imperfectos en escenarios reales (como la migración de flotas críticas de RPA), comunicando siempre los resultados de forma estructurada y accionable para la toma de decisiones.
 
 <br>
 
@@ -49,6 +58,10 @@ He organizado mis proyectos más relevantes clasificados por la etapa formativa 
 <br>
 
 ## 🛠️ Stack Tecnológico & Herramientas
+
+**`Python • C# • Java • FastAPI • Spring • AWS • Azure • Docker • Kubernetes • Qdrant • Machine Learning • LLMs`**
+
+<br>
 
 <p align="left">
   <!-- AI / ML / Data -->
