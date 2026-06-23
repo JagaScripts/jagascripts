@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>Hi there 👋 I'm Jose Antonio González Alcántara</h1>
-  <h3>Ingeniero de Software especializado en IA, Cloud Computing y DevOps</h3>
+  <img src="assets/banner.png" alt="JagaScripts Banner" width="100%">
+  <br>
 
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/jagascripts/)
   [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jagaScripts)
@@ -56,19 +56,31 @@ He organizado mis proyectos más relevantes clasificados por la etapa formativa 
 ## 🛠️ Stack Tecnológico & Herramientas
 
 <p align="left">
+  <!-- AI / ML / Data -->
+  <img src="https://img.shields.io/badge/-Artificial%20Intelligence-05122A?style=flat" alt="Artificial Intelligence">
+  <img src="https://img.shields.io/badge/-Machine%20Learning-05122A?style=flat&logo=scikit-learn" alt="Machine Learning">
+  <img src="https://img.shields.io/badge/-Deep%20Learning-05122A?style=flat&logo=tensorflow" alt="Deep Learning">
+  <img src="https://img.shields.io/badge/-LLMs-05122A?style=flat&logo=openai" alt="LLMs">
+  <img src="https://img.shields.io/badge/-LangChain-05122A?style=flat&logo=langchain" alt="LangChain">
+  <img src="https://img.shields.io/badge/-Qdrant-05122A?style=flat" alt="Qdrant">
+  <img src="https://img.shields.io/badge/-Pandas-05122A?style=flat&logo=pandas" alt="Pandas">
+  <img src="https://img.shields.io/badge/-Scikit--Learn-05122A?style=flat&logo=scikit-learn" alt="Scikit-learn">
+  <br><br>
+  <!-- Backend / Core -->
   <img src="https://img.shields.io/badge/-Python-05122A?style=flat&logo=python" alt="Python">
+  <img src="https://img.shields.io/badge/-FastAPI-05122A?style=flat&logo=fastapi" alt="FastAPI">
   <img src="https://img.shields.io/badge/-Java-05122A?style=flat&logo=openjdk" alt="Java">
   <img src="https://img.shields.io/badge/-TypeScript-05122A?style=flat&logo=typescript" alt="TypeScript">
   <img src="https://img.shields.io/badge/-Angular-05122A?style=flat&logo=angular" alt="Angular">
-  <img src="https://img.shields.io/badge/-FastAPI-05122A?style=flat&logo=fastapi" alt="FastAPI">
+  <br><br>
+  <!-- DevOps / Cloud -->
+  <img src="https://img.shields.io/badge/-DevOps-05122A?style=flat" alt="DevOps">
   <img src="https://img.shields.io/badge/-Docker-05122A?style=flat&logo=docker" alt="Docker">
   <img src="https://img.shields.io/badge/-Kubernetes-05122A?style=flat&logo=kubernetes" alt="Kubernetes">
   <img src="https://img.shields.io/badge/-AWS-05122A?style=flat&logo=amazon-aws" alt="AWS">
   <img src="https://img.shields.io/badge/-Google%20Cloud-05122A?style=flat&logo=googlecloud" alt="Google Cloud">
   <img src="https://img.shields.io/badge/-Azure-05122A?style=flat&logo=microsoft-azure" alt="Azure">
   <img src="https://img.shields.io/badge/-GitHub%20Actions-05122A?style=flat&logo=githubactions" alt="GitHub Actions">
-  <img src="https://img.shields.io/badge/-Prometheus-05122A?style=flat&logo=prometheus" alt="Prometheus">
-  <img src="https://img.shields.io/badge/-Grafana-05122A?style=flat&logo=grafana" alt="Grafana">
 </p>
 
 <br>
