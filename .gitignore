@@ -1,130 +1,56 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-.Python
-env/
+# Entornos virtuales Python
 venv/
 .venv/
-
-# Byte-compiled / optimized / DLL files
+.venvl/
+env/
+__pycache__/
 *.pyc
+*.pyo
+*.pyd
 
-# Environments
-.env
-.env.*
+# Node y Frontend
+node_modules/
+dist/
+build/
+.angular/
+npm-debug.log
 
-# VSCode / IDE
-.vscode/
+# Java y Android
+*.class
+*.jar
+*.war
+*.ear
+*.apk
+*.aab
+target/
+.gradle/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+
+# IDEs
 .idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.settings/
+.classpath
+.project
 
-# Mac/Linux/System
+# SO
 .DS_Store
 Thumbs.db
-# Instructional and prompt files
-Prompt.md
-Prompts.md
-0*.md
-context/
 
-# Images
-img/
-
-# Byte-compiled / optimized / DLL files
- 
-*.py[codz]
-*$py.class
-
-# C extensions
-*.so
-
-# Distribution / packaging
- 
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py.cover
-.hypothesis/
-.pytest_cache/
-cover/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
+# Bases de datos y logs
+*.sqlite3
 *.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+data/qdrant/
 
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-.pybuilder/
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# Environments
- 
-.envrc
-.venv
- 
-ENV/
-env.bak/
-venv.bak/
-
-# PyCharm, VSCode, etc.
- 
-
-# Cursor
-.cursorignore
-.cursorindexingignore
-# Other specific tool caches
-.mypy_cache/
-.pytest_cache/
-.ruff_cache/
+# Entorno local y secretos
+.env
+env.properties
+# Evitar ignorar el .agent del root si hiciera falta, pero aseguramos que el del root este controlado por sus propias reglas.
+# Las subcarpetas .agent de otros proyectos han sido borradas.

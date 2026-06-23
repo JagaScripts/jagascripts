@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" template="/template.xhtml">
+    <ui:define name="header">
+        <ui:include src="/header.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="sideleft">
+        <ui:include src="/sideleft.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="content">
+        <h1>¿Quienes somos?</h1>
+        <h3>La empresa AGRUPADOS S.A. El objetivo de la empresa sistema de búsqueda de ofertas,  un módulo de estadísticas de las ventas para los negocios y construyas una API de consulta a través de servicios web (REST) para poder acceder a la plataforma y consultar datos desde dispositivos móviles.
+        Este sistema deberá permitir la consulta por localización y simular el proceso de compra de cupones de ofertas (si deberá registrar la operación pero no realizar el pago).
+        Si un usuario quiere comprar un cupón de oferta a través de un método de la API, se deberá registrar la compra con un código autogenerado y el periodo de validez para que se pueda comprobar que es una oferta válida a través de la web.</h3> 
+    </ui:define>
+    <ui:define name="footer">
+        <ui:include src="/footer.xhtml"></ui:include>
+    </ui:define>
+</ui:composition>
+

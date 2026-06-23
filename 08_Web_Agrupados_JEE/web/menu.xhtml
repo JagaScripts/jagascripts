@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <p:panel id="menuPanel">
+        <h:form>  
+            <p:menubar>
+                <p:submenu label="Menu de #{userBean.user.role.rolename}" icon="ui-icon-person" rendered="#{loginBean.loggedIn}">
+                    <p:submenu label="#{es_bundle.User}" icon="ui-icon-contact">
+                        <p:menuitem value="#{es_bundle.View_Profile}" outcome="#{userBean.rol}/profile" rendered="#{loginBean.loggedIn}"/>
+                        <p:menuitem value="#{es_bundle.View_Coupons}" outcome="#{userBean.rol}/coupons" rendered="#{loginBean.loggedIn}"/>
+                        <p:menuitem value="#{es_bundle.View_Edit}" outcome="#{userBean.rol}/edit" rendered="#{loginBean.loggedIn}"/>
+                        <p:menuitem value="#{es_bundle.View_UnSuscribe}" outcome="#{userBean.rol}/baja" rendered="#{loginBean.loggedIn}"/>
+                        <p:submenu label="#{es_bundle.Business_zone}" icon="ui-icon-contact" rendered="#{userBean.business}">
+                            <p:menuitem value="#{es_bundle.View_Offers_Business}" outcome="#{userBean.rol}/offers/List" rendered="#{userBean.business}"/>
+                        </p:submenu>
+                        <p:submenu label="#{es_bundle.Admin_Zone}" icon="ui-icon-contact" rendered="#{userBean.admin}">
+                            <p:menuitem value="#{es_bundle.View_Admin_Offers}" outcome="#{userBean.rol}/offers/List" rendered="#{userBean.admin}"/>
+                            <p:menuitem value="#{es_bundle.View_Admin_Coupons}" outcome="#{userBean.rol}/coupons/List" rendered="#{userBean.admin}"/>
+                            <p:menuitem value="#{es_bundle.View_Admin_Roles}" outcome="#{userBean.rol}/roles/List" rendered="#{userBean.admin}"/>
+                            <p:menuitem value="#{es_bundle.View_Admin_UsersDetails}" outcome="#{userBean.rol}/userDetails/List" rendered="#{userBean.admin}"/>
+                            <p:menuitem value="#{es_bundle.View_Admin_Users}" outcome="#{userBean.rol}/users/List" rendered="#{userBean.admin}"/>
+                        </p:submenu>
+                    </p:submenu>
+                    <p:separator />
+                    <p:menuitem value="#{es_bundle.Quit}" action="#{loginBean.logout()}" process="@all" update=":menuPanel,:panelLogin"/>
+                </p:submenu>
+                <p:menuitem value="#{es_bundle.Home}" outcome="/index" icon="ui-icon-home"/>
+                <p:menuitem value="#{es_bundle.Register}" outcome="/register" icon=" ui-icon-disk" rendered="#{userBean.notRegistered}"/>
+                <p:menuitem value="#{es_bundle.SearchOffers}" outcome="/searchOffers" icon="ui-icon-search"/>
+                <p:menuitem value="#{es_bundle.Cart}" outcome="/cart" icon="ui-icon-cart"/>
+            </p:menubar>
+        </h:form>
+    </p:panel>
+</ui:composition>

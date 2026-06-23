@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" template="../../template.xhtml">
+    <ui:define name="header">
+        <ui:include src="../../header.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="sideleft">
+        <ui:include src="../../sideleft.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="content">
+        <p:panel id="usersList">
+            <h:form id="UsersListForm">
+                <p:panel>
+                    <p:dataTable id="offersDatalist" value="#{usersController.items}" var="item"
+                                 selectionMode="single" selection="#{usersController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+                         <f:facet name="header">
+                            #{es_bundle.ListUsersTitle}
+                        </f:facet>
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUsersTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUsersTitle_username}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.username}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUsersTitle_password}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.password}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUsersTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUsersTitle_active}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.active}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUsersTitle_role}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.role}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{es_bundle.Create}" actionListener="#{usersController.prepareCreate}" update=":UsersCreateForm" oncomplete="PF('UsersCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{es_bundle.View}" update=":UsersViewForm" oncomplete="PF('UsersViewDialog').show()" disabled="#{empty usersController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{es_bundle.Edit}" update=":UsersEditForm" oncomplete="PF('UsersEditDialog').show()" disabled="#{empty usersController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{es_bundle.Delete}" actionListener="#{usersController.destroy}" update=":growl,offersDatalist" disabled="#{empty usersController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+            
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+</p:panel>
+ </ui:define>
+    <ui:define name="footer">
+        <ui:include src="../../footer.xhtml"></ui:include>
+    </ui:define>
+</ui:composition>
+

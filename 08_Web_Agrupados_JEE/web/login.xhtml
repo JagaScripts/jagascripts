@@ -1,0 +1,27 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    <p:panel id="panelLogin">
+        <h:form id="login" >
+            <p:panelGrid columns="1" style="width: 100%">
+                <h:outputText id="loggedUsername" value="#{es_bundle.Bienvenido} #{userBean.details.name}" rendered="#{loginBean.loggedIn}"/>
+                <p:commandButton process="@form" update=":panelLogin,:menuPanel"
+                                 value="#{es_bundle.Logout}" action="#{loginBean.logout()}" rendered="#{loginBean.loggedIn}"/> 
+            </p:panelGrid>           
+            <p:panelGrid columns="1" rendered="#{!loginBean.loggedIn}">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                <h:outputLabel value="#{es_bundle.Label_Username}" for="username"></h:outputLabel>
+                <h:inputText id="username" value="#{loginBean.username}" required="true" requiredMessage="Debes introducir un nombre de usuario"></h:inputText>
+                <h:outputLabel value="#{es_bundle.Label_Password}" for="password"></h:outputLabel>
+                <h:inputSecret value="#{loginBean.password}" id="password" required="true" requiredMessage="Debes introducir una contraseña"></h:inputSecret>
+                <p:commandButton process="@form" update=":panelLogin,:menuPanel"
+                                 value="#{es_bundle.Login}" action="#{loginBean.login()}"/> 
+            </p:panelGrid>
+            <br></br>
+            <h:link  outcome="/register" value="Registrate" rendered="#{!loginBean.loggedIn}">
+            </h:link>
+        </h:form>
+    </p:panel>
+</ui:composition>

@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" template="/template.xhtml">
+    <ui:define name="header">
+        <ui:include src="/header.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="sideleft">
+        <ui:include src="/sideleft.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="content">
+        <p:panel id="searchOffersList">
+            <h:form id="searchOffersListForm">
+                <p:panel>
+                    <p:dataTable id="offersDatalist" value="#{offersController.itemsActive}" widgetVar="offerTable" var="item"
+                                 selectionMode="single" selection="#{offersController.selected}"
+                                 paginator="true" emptyMessage="No existe ninguna oferta con estos criterios"
+                                 rowKey="#{item.id}" filteredValue="#{offersController.filteredItems}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+                        
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Buscar en todos los campos:" />
+                                <p:inputText id="globalFilter" onkeyup="PF('offerTable').filter()" style="width:150px" placeholder="Introduce palabra clave"/>
+                            </p:outputPanel>
+                        </f:facet>
+
+                        <p:column footerText="#{es_bundle.ListOffersTitle_title}" filterBy="#{item.title}" headerText="Filtro de contiene título" filterMatchMode="contains">
+                            <h:outputText value="#{item.title}"/>
+                        </p:column>
+                        <p:column footerText="#{es_bundle.ListOffersTitle_description}" filterBy="#{item.description}" headerText="Filtro de contiene descripción" filterMatchMode="contains">
+                            <h:outputText value="#{item.description}"/>
+                        </p:column>
+                        <p:column footerText="#{es_bundle.ListOffersTitle_startPrice}" filterBy="#{item.startPrice}" headerText="Filtro de precio menor que" filterFunction="#{offersController.filterByPriceLte}">
+                            <h:outputText value="#{item.startPrice}">
+                                 <f:convertNumber currencySymbol="€" type="currency"/>
+                            </h:outputText>
+                        </p:column>
+                        <p:column footerText="#{es_bundle.ListOffersTitle_offerPrice}" filterBy="#{item.offerPrice}" headerText="Filtro de recio mayor que" filterFunction="#{offersController.filterByPriceGte}">
+                            <h:outputText value="#{item.offerPrice}">
+                                <f:convertNumber currencySymbol="€" type="currency"/>
+                            </h:outputText>
+                        </p:column>
+                        <p:column id="colStartDate" footerText="#{es_bundle.ListOffersTitle_startDate}" filterBy="#{item.startDate}" headerText="Filtro fecha posterior a" filterFunction="#{offersController.filterByDateBefore}">
+                            <f:facet name="filter">
+                                <p:calendar id="calendarStartDate" pattern="dd/MM/yyyy HH:mm">
+                                   <p:ajax event="dateSelect" oncomplete="PF('offerTable').filter()" update="offersDatalist"/>
+                                   <p:ajax event="change" process="@this,colStartDate" oncomplete="PF('offerTable').filter()" update="offersDatalist"/>
+                                </p:calendar>
+                            </f:facet>
+                            <h:outputText value="#{item.startDate}">
+                                <f:convertDateTime type="date" pattern="dd/MM/yyyy HH:mm"/>
+                            </h:outputText>
+                        </p:column>
+                        <p:column id="colEndDate" footerText="#{es_bundle.ListOffersTitle_endDate}" filterBy="#{item.endDate}" headerText="Filtro fecha anterior a" filterFunction="#{offersController.filterByDateAfter}">
+                            <f:facet name="filter">
+                                <p:calendar id="calendarEndDate" pattern="dd/MM/yyyy HH:mm">
+                                   <p:ajax event="dateSelect" oncomplete="PF('offerTable').filter()" update="offersDatalist"/>
+                                   <p:ajax event="change" process="@this,colEndDate" oncomplete="PF('offerTable').filter()" update="offersDatalist"/>
+                                </p:calendar>
+                            </f:facet>
+                            <h:outputText value="#{item.endDate}">
+                                <f:convertDateTime type="date" pattern="dd/MM/yyyy HH:mm" />
+                            </h:outputText>
+                        </p:column>
+                                             
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+        </p:panel>
+ </ui:define>
+    <ui:define name="footer">
+        <ui:include src="/footer.xhtml"></ui:include>
+    </ui:define>
+</ui:composition>

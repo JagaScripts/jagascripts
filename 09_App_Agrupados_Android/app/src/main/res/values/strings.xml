@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TO_JAGA_Android_Agrupados</string>
+
+    <string name="home_item">Home</string>
+    <string name="productos_item">Productos</string>
+    <string name="compras_item">Carrito</string>
+    <string name="ordenes_item">Ordenes</string>
+    <string name="facturas_item">Facturas</string>
+    <string name="log_out_item">Cerrar Sesión</string>
+    <string name="configuracion_item">Configuración</string>
+
+</resources>

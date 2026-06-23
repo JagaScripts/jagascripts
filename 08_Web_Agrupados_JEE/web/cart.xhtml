@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" template="/template.xhtml">
+    <ui:define name="header">
+        <ui:include src="/header.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="sideleft">
+        <ui:include src="/sideleft.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="content">
+        <p:panel id="panelCart">
+            <h:form id="formCart">
+                <p:dataList value="#{cartBean.cartOffersFromMap}" var="offerList" type="ordered" emptyMessage="#{es_bundle.CartEmpty}">
+                    <f:facet name="header">
+                        Carrito
+                    </f:facet>
+                    <p:panel>
+                        <p:panelGrid id="panelDetailCart" columns="6" style="text-align: center; width: 100%">
+                            <h:outputText id="offerTitle" value="#{offerList.offer.title} : "/>
+                            <h:outputText id="offerDescription" value="#{offerList.offer.description}"/>
+                            <h:outputText id="offerPricee" value="#{offerList.offer.offerPrice} €"/>
+                            <h:outputText value="x #{offerList.quantiti}" style="width: 20px; margin: 0px !important;text-align: center"/> 
+                            <h:outputText id="offerCartPrice" value="#{offerList.offerPrice} €"/>
+                            <p:commandButton id="removeOfCart" icon="ui-icon-trash" action="#{cartBean.removeOfferToCart(offerList.offer)}" update=":panelCart" process="@all"/>
+                        </p:panelGrid>
+                    </p:panel>
+                    <f:facet name="footer">
+                        Total: #{cartBean.total} € 
+                    </f:facet>
+                </p:dataList>
+                <p:commandButton value="#{es_bundle.ContinueBuy}" action="/index.xhtml" style="float: left"/>
+                <p:commandButton value="#{es_bundle.FinalizarCompra}" action="#{cartBean.finalizarCompra()}" style="float: right"/>
+            </h:form>
+        </p:panel>
+    </ui:define>
+    <ui:define name="footer">
+        <ui:include src="/footer.xhtml"></ui:include>
+    </ui:define>
+</ui:composition>

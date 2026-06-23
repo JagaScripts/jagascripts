@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" template="/template.xhtml">
+    <ui:define name="header">
+        <ui:include src="/header.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="sideleft">
+        <ui:include src="/sideleft.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="content">
+        <p:panel rendered="#{!loginBean.loggedIn}">
+            <h2 style="color: red">Debes iniciar sesión como usuario registrado si quieres ver los cupones</h2>
+        </p:panel>
+        <p:panel id="panelCoupons" rendered="#{loginBean.loggedIn}">
+            <h:form id="formCoupons">
+                <p:dataGrid id="datalistCoupons" value="#{userBean.user.couponsCollection}" var="item" columns="3" emptyMessage="#{es_bundle.CouponsEmpty}">
+                    <f:facet name="header">
+                        Cupones de #{userBean.details.name}
+                    </f:facet>
+                    <p:panel header="#{item.offersId.title}" style="text-align: center">
+                        <p:panelGrid columns="2">
+                            <h:outputText value="#{es_bundle.ListCouponsTitle_generatedCode}" style="font-weight: bolder"/>
+                            <h:outputText value="#{item.generatedCode}"/>
+                            <h:outputText value="#{es_bundle.ListCouponsTitle_purchaseDatetime}" style="font-weight: bolder"/>
+                            <h:outputText value="#{item.purchaseDatetime}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                            <h:outputText value="#{es_bundle.ListCouponsTitle_used}" style="font-weight: bolder"/>
+                            <h:outputText value="#{item.used}"/>
+                            <h:outputText value="#{es_bundle.ListOffersTitle_title}" style="font-weight: bolder"/>
+                            <h:outputText value="#{item.offersId.title}"/>
+                            <h:outputText value="#{es_bundle.ListOffersTitle_description}" style="font-weight: bolder"/>
+                            <h:outputText value="#{item.offersId.description}"/>
+
+                            <h:outputText value="#{es_bundle.ListOffersTitle_endDate}" style="font-weight: bolder"/>
+                            <h:outputText value="#{item.offersId.endDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                            <h:outputText value="#{es_bundle.ListOffersTitle_offerPrice}" style="font-weight: bolder"/>
+                            <h:outputText value="#{item.offersId.offerPrice}  €"/>  
+                        </p:panelGrid>
+                    </p:panel>
+                </p:dataGrid>
+            </h:form>
+        </p:panel>
+    </ui:define>
+    <ui:define name="footer">
+        <ui:include src="/footer.xhtml"></ui:include>
+    </ui:define>
+</ui:composition>

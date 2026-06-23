@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+    <p:panel id="panelOffers">
+        <h:form id="offers">
+            <p:dataGrid id="offersDataList" value="#{offersController.itemsActive}" var="item"
+                        columns="3" paginator="true" rows="10"
+                        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                        rowsPerPageTemplate="10,20,30">
+
+                <f:facet name="header">
+                    Ofertas
+                </f:facet>
+
+                <p:panel header="#{item.title}" style="text-align: center"> 
+                    <p:graphicImage name="#{item.image}" style="text-align: center; width: 25%; height: 25%"/>
+                    <p:panelGrid columns="2" style="width: 100%" >
+                        <h:outputText value="#{es_bundle.ListOffersTitle_description}" style="font-weight: bolder"/>
+                        <h:outputText value="#{item.description}"/>
+                        <h:outputText value="#{es_bundle.ListOffersTitle_startDate}" style="font-weight: bolder"/>
+                        <h:outputText value="#{item.startDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{es_bundle.ListOffersTitle_endDate}" style="font-weight: bolder"/>
+                        <h:outputText value="#{item.endDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{es_bundle.ListOffersTitle_startPrice}" style="font-weight: bolder"/>
+                        <h:outputText value="#{item.startPrice}  €"/>
+                        <h:outputText value="#{es_bundle.ListOffersTitle_offerPrice}" style="font-weight: bolder"/>
+                        <h:outputText value="#{item.offerPrice}  €"/>
+                        <f:facet name="footer">
+                            <p:commandButton id="addOffertoCartButton" icon="ui-icon-cart" ajax="true" update=":growl" 
+                                             value="#{es_bundle.Carrito}" action="#{cartBean.addOfferToCart(item)}"/>
+                        </f:facet>
+                    </p:panelGrid>
+
+                </p:panel>
+            </p:dataGrid>
+
+        </h:form>
+    </p:panel>
+</ui:composition>

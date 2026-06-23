@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RolesEditDlg" widgetVar="RolesEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{es_bundle.EditRolesTitle}">
+            <h:form id="RolesEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{rolesController.selected != null}">
+                        <p:outputLabel value="#{es_bundle.EditRolesLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{rolesController.selected.id}" title="#{es_bundle.EditRolesTitle_id}" disabled="true"/>
+                        <p:outputLabel value="#{es_bundle.EditRolesLabel_rolename}" for="rolename" />
+                        <p:inputText id="rolename" value="#{rolesController.selected.rolename}" title="#{es_bundle.EditRolesTitle_rolename}" required="true" requiredMessage="#{es_bundle.EditRolesRequiredMessage_rolename}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{rolesController.update}" value="#{es_bundle.Save}" update="display,:RolesListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RolesEditDialog');"/>
+                    <p:commandButton value="#{es_bundle.Cancel}" update="display,:RolesListForm:datalist,:growl" onclick="RolesEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

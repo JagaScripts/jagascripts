@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" template="/template.xhtml">
+    <ui:define name="header">
+        <ui:include src="/header.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="sideleft">
+        <ui:include src="/sideleft.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="content">
+        <p:panel id="registerPanelLogged" rendered="#{loginBean.loggedIn}">
+            <h2 style="color: red">Debes cerrar la sesión si quieres registrar un usuario nuevo</h2>
+        </p:panel>
+        <p:panel id="registerPanel" rendered="#{!loginBean.loggedIn}">
+            <p:messages id="registerFormMsgs"/>
+            <h:form id="registerForm">
+                <p:panelGrid columns="3" id="displayUserNoExist" 
+                             rendered="#{registerBean.comprobate and !loginBean.loggedIn and registerBean.user != null and registerBean.userDetails != null}">
+                    <f:facet name="header">
+                        #{es_bundle.RegisterFormTitle}
+                    </f:facet>
+                    <p:outputLabel value="#{es_bundle.CreateUsersLabel_username}" for="usernameC" />
+                    <p:inputText id="usernameC" value="#{registerBean.user.username}" 
+                                 title="#{es_bundle.CreateUsersTitle_username}" 
+                                 required="true" requiredMessage="#{es_bundle.CreateUsersRequiredMessage_username}"/>
+                    <p:message for="usernameC"/>
+                    <p:outputLabel value="#{es_bundle.CreateUsersLabel_password}" for="password"  />
+                    <p:password id="password" value="#{registerBean.user.password}" match="passwordRepeat" 
+                                title="#{es_bundle.CreateUsersTitle_password}" 
+                                required="true" requiredMessage="#{es_bundle.CreateUsersRequiredMessage_password}"  
+                                feedback="true" />
+                    <p:message for="password" />
+                    <p:outputLabel value="#{es_bundle.Title_Repeat_Password}" for="passwordRepeat" />
+                    <p:password id="passwordRepeat" value="#{registerBean.password}"
+                                title="#{es_bundle.Title_Repeat_Password}" 
+                                required="true" requiredMessage="#{es_bundle.CreateUsersRequiredMessage_passwordRepeat}" 
+                                feedback="true" />
+                    <p:message for="passwordRepeat"  />
+                    <p:outputLabel value="#{es_bundle.CreateUsersLabel_email}" for="emailC" />
+                    <p:inputText id="emailC" value="#{registerBean.user.email}" 
+                                 title="#{es_bundle.CreateUsersTitle_email}" 
+                                 required="true" requiredMessage="#{es_bundle.CreateUsersRequiredMessage_email}"/>
+                    <p:message for="emailC"/>
+                    <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_name}" for="name" />
+                    <p:inputText id="name" value="#{registerBean.userDetails.name}" 
+                                 title="#{es_bundle.CreateUserDetailsTitle_name}" 
+                                 required="true" requiredMessage="#{es_bundle.CreateUserDetailsRequiredMessage_name}"/>
+                    <p:message for="name"/>
+                    <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_dniCif}" for="dniCif" />
+                    <p:inputText id="dniCif" value="#{registerBean.userDetails.dniCif}" validator="#{dniBean.validate}"
+                                 title="#{es_bundle.CreateUserDetailsTitle_dniCif}"
+                                 required="true" requiredMessage="#{es_bundle.CreateUserDetailsRequiredMessage_dniCif}"/>
+                    <p:message for="dniCif"/>
+                    <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_address}" for="address" />
+                    <p:inputText id="address" value="#{registerBean.coordenates.address.address}" 
+                                 title="#{es_bundle.CreateUserDetailsTitle_address}" 
+                                 required="true" requiredMessage="#{es_bundle.CreateUserDetailsRequiredMessage_address}">
+                        <p:ajax event="change" update="longitude,latitude"   
+                                listener="#{registerBean.coordenates.retrieveCoordinates()}" process="@this,address"/>
+                    </p:inputText>
+                    <p:message for="address"/>
+                    <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_city}" for="city" />
+                    <p:inputText id="city" value="#{registerBean.coordenates.address.city}" 
+                                 title="#{es_bundle.CreateUserDetailsTitle_city}" 
+                                 required="true" requiredMessage="#{es_bundle.CreateUserDetailsRequiredMessage_city}">
+                        <p:ajax event="change" update="longitude,latitude"   
+                                listener="#{registerBean.coordenates.retrieveCoordinates()}" process="@this,city"/>
+                    </p:inputText>
+                    <p:message for="city"/>
+                    <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_province}" for="province" />
+                    <p:inputText id="province" value="#{registerBean.coordenates.address.province}" 
+                                 title="#{es_bundle.CreateUserDetailsTitle_province}" 
+                                 required="true" requiredMessage="#{es_bundle.CreateUserDetailsRequiredMessage_province}">
+                        <p:ajax event="change" update="longitude,latitude"   
+                                listener="#{registerBean.coordenates.retrieveCoordinates()}" process="@this,province"/>
+                    </p:inputText>
+                    <p:message for="province"/>
+                    <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_country}" for="country" />
+                    <p:inputText id="country" value="#{registerBean.coordenates.address.country}" 
+                                 title="#{es_bundle.CreateUserDetailsTitle_country}" 
+                                 required="true" requiredMessage="#{es_bundle.CreateUserDetailsRequiredMessage_country}">
+                        <p:ajax event="change" update="longitude,latitude"   
+                                listener="#{registerBean.coordenates.retrieveCoordinates()}" 
+                                process="@this,country"/>
+                    </p:inputText>
+                    <p:message for="country"/>
+                    <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_latitude}" for="latitude" />
+                    <p:outputLabel id="latitude" value="#{registerBean.coordenates.address.latitude}" 
+                                   title="#{es_bundle.CreateUserDetailsTitle_latitude}"/>
+                    <br>  
+                    </br>
+                    <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_longitude}" for="longitude" />
+                    <p:outputLabel id="longitude" value="#{registerBean.coordenates.address.longitude}" 
+                                   title="#{es_bundle.CreateUserDetailsTitle_longitude}"/>
+                    <br>  
+                    </br>
+                    <p:commandButton action="#{registerBean.registerUser()}" value="#{es_bundle.Register}" 
+                            validateClient="true" rendered="#{registerBean.comprobate 
+                            and !loginBean.loggedIn and registerBean.user != null 
+                            and registerBean.userDetails != null}" process="@form"
+                            ajax="true" update=":registerPanel,:growl"/>
+                </p:panelGrid>
+                <p:panelGrid id="displayUserExist" columns="3" rendered="#{!loginBean.loggedIn and !registerBean.comprobate}">
+                    <f:facet name="header">
+                        #{es_bundle.ComprobateForm}
+                    </f:facet>
+                    <p:outputLabel value="#{es_bundle.CreateUsersLabel_username}" for="username" />
+                    <p:inputText id="username" value="#{registerBean.username}" 
+                                 title="#{es_bundle.CreateUsersTitle_username}" 
+                                 required="true" requiredMessage="#{es_bundle.CreateUsersRequiredMessage_username}"/>
+                    <p:message for="username"/>
+                    <p:outputLabel value="#{es_bundle.CreateUsersLabel_email}" for="email" />
+                    <p:inputText id="email" value="#{registerBean.email}" 
+                                 title="#{es_bundle.CreateUsersTitle_email}" required="true" requiredMessage="#{es_bundle.CreateUsersRequiredMessage_email}"/>
+                    <p:message for="email"/>
+                    <p:commandButton action="#{registerBean.comprobateUsernameAndEmail()}" process="@form"
+                                     ajax="true" update=":registerPanel,:registerFormMsgs" value="#{es_bundle.RegisterComprobate}" 
+                                     validateClient="true" rendered="#{!loginBean.loggedIn and !registerBean.comprobate}" icon="pi pi-check"/>
+                </p:panelGrid>
+            </h:form>
+        </p:panel>
+    </ui:define>
+    <ui:define name="footer">
+        <ui:include src="/footer.xhtml"></ui:include>
+    </ui:define>
+</ui:composition>
