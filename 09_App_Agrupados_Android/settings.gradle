@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='TO_JAGA_Android_Agrupados'

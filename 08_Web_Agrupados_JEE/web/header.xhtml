@@ -1,0 +1,15 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    <h:form>
+    <h:commandLink action="/cart.xhtml">
+        <p:graphicImage name="./img/carrito.png" width="50px" height="50px" style="float: right" >
+        </p:graphicImage>
+    </h:commandLink>
+    </h:form>
+    <h2>#{es_bundle.AppName}</h2>
+    <ui:include src="/menu.xhtml"></ui:include>
+</ui:composition>

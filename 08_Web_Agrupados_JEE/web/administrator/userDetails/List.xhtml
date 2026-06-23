@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" template="../../template.xhtml">
+    <ui:define name="header">
+        <ui:include src="../../header.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="sideleft">
+        <ui:include src="../../sideleft.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="content">
+        <p:panel id="detailsList">
+            <h:form id="UserDetailsListForm">
+                <p:panel>
+                    <p:dataTable id="datalist" value="#{userDetailsController.items}" var="item"
+                                 selectionMode="single" selection="#{userDetailsController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+                        <f:facet name="header">
+                            #{es_bundle.ListUserDetailsTitle}
+                        </f:facet>
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUserDetailsTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUserDetailsTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUserDetailsTitle_dniCif}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dniCif}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUserDetailsTitle_address}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.address}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUserDetailsTitle_city}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.city}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUserDetailsTitle_province}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.province}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUserDetailsTitle_country}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.country}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUserDetailsTitle_latitude}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.latitude}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUserDetailsTitle_longitude}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.longitude}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUserDetailsTitle_dateOfRegistration}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateOfRegistration}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUserDetailsTitle_leavingDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.leavingDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListUserDetailsTitle_applicationUsersId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.applicationUsersId}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{es_bundle.Create}" actionListener="#{userDetailsController.prepareCreate}" update=":UserDetailsCreateForm" oncomplete="PF('UserDetailsCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{es_bundle.View}" update=":UserDetailsViewForm" oncomplete="PF('UserDetailsViewDialog').show()" disabled="#{empty userDetailsController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{es_bundle.Edit}" update=":UserDetailsEditForm" oncomplete="PF('UserDetailsEditDialog').show()" disabled="#{empty userDetailsController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{es_bundle.Delete}" actionListener="#{userDetailsController.destroy}" update=":growl,datalist" disabled="#{empty userDetailsController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+</p:panel>
+ </ui:define>
+    <ui:define name="footer">
+        <ui:include src="../../footer.xhtml"></ui:include>
+    </ui:define>
+</ui:composition>

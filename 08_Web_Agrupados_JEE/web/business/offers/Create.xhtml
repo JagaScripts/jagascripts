@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="OffersCreateDlg" widgetVar="OffersCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{es_bundle.CreateOffersTitle}">
+            <h:form id="OffersCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{offersController.selected != null}">
+                        <p:outputLabel value="#{es_bundle.CreateOffersLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{offersController.selected.id}" title="#{es_bundle.CreateOffersTitle_id}" disabled="true"/>
+                        <p:outputLabel value="#{es_bundle.CreateOffersLabel_title}" for="title" />
+                        <p:inputText id="title" value="#{offersController.selected.title}" title="#{es_bundle.CreateOffersTitle_title}" required="true" requiredMessage="#{es_bundle.CreateOffersRequiredMessage_title}"/>
+                        <p:outputLabel value="#{es_bundle.CreateOffersLabel_description}" for="description" />
+                        <p:inputText id="description" value="#{offersController.selected.description}" title="#{es_bundle.CreateOffersTitle_description}" />
+                        <p:outputLabel value="#{es_bundle.CreateOffersLabel_startPrice}" for="startPrice" />
+                        <p:inputText id="startPrice" value="#{offersController.selected.startPrice}" title="#{es_bundle.CreateOffersTitle_startPrice}" required="true" requiredMessage="#{es_bundle.CreateOffersRequiredMessage_startPrice}"/>
+                        <p:outputLabel value="#{es_bundle.CreateOffersLabel_offerPrice}" for="offerPrice" />
+                        <p:inputText id="offerPrice" value="#{offersController.selected.offerPrice}" title="#{es_bundle.CreateOffersTitle_offerPrice}" required="true" requiredMessage="#{es_bundle.CreateOffersRequiredMessage_offerPrice}"/>
+                        <p:outputLabel value="#{es_bundle.CreateOffersLabel_image}" for="image" />
+                        <p:inputText id="image" value="#{offersController.selected.image}" title="#{es_bundle.CreateOffersTitle_image}" />
+                        <p:outputLabel value="#{es_bundle.CreateOffersLabel_startDate}" for="startDate" />
+                        <p:calendar id="startDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{offersController.selected.startDate}" title="#{es_bundle.EditOffersTitle_startDate}" required="true" requiredMessage="#{es_bundle.EditOffersRequiredMessage_startDate}" showOn="button"/>
+                        <p:outputLabel value="#{es_bundle.CreateOffersLabel_endDate}" for="endDate" />
+                        <p:calendar id="endDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{offersController.selected.endDate}" title="#{es_bundle.EditOffersTitle_endDate}" required="true" requiredMessage="#{es_bundle.EditOffersRequiredMessage_endDate}" showOn="button"/>
+                        <p:outputLabel value="#{es_bundle.CreateOffersLabel_active}" for="active" />
+                        <p:selectBooleanCheckbox id="active" value="#{offersController.selected.active}" disabled="true"/>                        
+                        <p:outputLabel value="#{es_bundle.CreateOffersLabel_applicationUsersId}" for="applicationUsersId" />
+                        <p:inputText id="applicationUsersId" value="#{userBean.user}" disabled="true"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{offersController.create}" value="#{es_bundle.Save}" update="display,:OffersListForm:datalist,:growl" oncomplete="handleSubmit(args,'OffersCreateDialog');"/>
+                    <p:commandButton value="#{es_bundle.Cancel}" onclick="OffersCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" template="/template.xhtml">
+    <ui:define name="header">
+        <ui:include src="/header.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="sideleft">
+        <ui:include src="/sideleft.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="content">
+        <h:form id="UserDetailsEditForm">
+            <h:panelGroup id="display">
+                <p:panelGrid columns="2" rendered="#{userBean.details != null}">
+                    <p:outputLabel value="#{es_bundle.EditUserDetailsLabel_name}" for="name" />
+                    <p:inputText id="name" value="#{userBean.details.name}" title="#{es_bundle.EditUserDetailsTitle_name}" required="true" requiredMessage="#{es_bundle.EditUserDetailsRequiredMessage_name}"/>
+                    <p:outputLabel value="#{es_bundle.EditUserDetailsLabel_dniCif}" for="dniCif" />
+                    <p:inputText id="dniCif" value="#{userBean.details.dniCif}" title="#{es_bundle.EditUserDetailsTitle_dniCif}" required="true" requiredMessage="#{es_bundle.EditUserDetailsRequiredMessage_dniCif}"/>
+                    <p:outputLabel value="#{es_bundle.EditUserDetailsLabel_address}" for="address" />
+                    <p:inputText id="address" value="#{userBean.details.address}" title="#{es_bundle.EditUserDetailsTitle_address}" required="true" requiredMessage="#{es_bundle.EditUserDetailsRequiredMessage_address}">
+                    </p:inputText>
+                    <p:outputLabel value="#{es_bundle.EditUserDetailsLabel_city}" for="city" />
+                    <p:inputText id="city" value="#{userBean.details.city}" title="#{es_bundle.EditUserDetailsTitle_city}" required="true" requiredMessage="#{es_bundle.EditUserDetailsRequiredMessage_city}">
+                    </p:inputText>
+                    <p:outputLabel value="#{es_bundle.EditUserDetailsLabel_province}" for="province" />
+                     <p:inputText id="province" value="#{userBean.details.province}" title="#{es_bundle.EditUserDetailsTitle_province}" required="true" requiredMessage="#{es_bundle.EditUserDetailsRequiredMessage_province}">
+                    </p:inputText>
+                    <p:outputLabel value="#{es_bundle.EditUserDetailsLabel_country}" for="country" />
+                    <p:inputText id="country" value="#{userBean.details.country}" title="#{es_bundle.EditUserDetailsTitle_country}" required="true" requiredMessage="#{es_bundle.EditUserDetailsRequiredMessage_country}">
+                    </p:inputText>
+                    <p:outputLabel value="#{es_bundle.EditUserDetailsLabel_latitude}" for="latitude" />
+                    <p:outputLabel id="latitude" value="#{userBean.details.latitude}" title="#{es_bundle.EditUserDetailsTitle_latitude}" />
+                    <p:outputLabel value="#{es_bundle.EditUserDetailsLabel_longitude}" for="longitude" />
+                    <p:outputLabel id="longitude" value="#{userBean.details.longitude}" title="#{es_bundle.EditUserDetailsTitle_longitude}" />
+                </p:panelGrid>
+                <p:commandButton action="#{userBean.edit()}"  value="#{es_bundle.Save}" process="@form" update=":UserDetailsEditForm,:growl"/>
+                <p:commandButton value="#{es_bundle.Cancel}" action="#{userBean.cancel()}" process="@form" update=":UserDetailsEditForm,:growl"/>
+            </h:panelGroup>
+        </h:form>
+    </ui:define>
+    <ui:define name="footer">
+        <ui:include src="/footer.xhtml"></ui:include>
+    </ui:define>
+</ui:composition>

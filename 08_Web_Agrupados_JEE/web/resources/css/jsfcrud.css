@@ -1,0 +1,61 @@
+.ui-widget {
+    font-size: 12px !important;
+}
+.ui-widget-header {
+    text-align: center;
+    text-transform: uppercase;
+}
+.ui-button {
+    margin-top: 10px !important;
+}
+#top {
+    position: relative;
+    background-color: #ff0084;
+    color: white;
+    padding: 5px;
+    margin: 0px 0px 10px 0px;
+}
+
+#bottom {
+    position: relative;
+    background-color: #ff0084;
+    color: white;
+    padding: 5px;
+    margin: 10px 0px 0px 0px;
+}
+
+#left {
+    float: left;
+    background-color: #dddddd;
+    padding: 5px;
+    width: 200px;
+}
+
+#right {
+    float: right;
+    background-color: #ffffff;
+    padding: 5px;
+    width: 100px;
+}
+
+.center_content {
+    position: relative;
+    background-color: #ffffff;
+    padding: 5px;
+}
+
+.left_content {
+    background-color: #ffffff;
+    padding: 5px;
+    margin-left: 220px;
+}
+
+.right_content {
+    background-color: #ffffff;
+    padding: 5px;
+    margin: 0px 220px 0px 220px;
+}
+
+#displayProfile span{
+    text-align: right;
+}

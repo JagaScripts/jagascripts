@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" template="/template.xhtml">
+    <ui:define name="header">
+        <ui:include src="/header.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="sideleft">
+        <ui:include src="/sideleft.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="content">
+        <p:panel id="panelProfile">
+            <h:outputLabel value="#{es_bundle.Profile} de #{userBean.user.role.rolename}"/>
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <br/>
+                <h:panelGrid id="displayProfile" columns="2">
+                    <h:outputLabel value="#{es_bundle.Label_Username}" for="username" />
+                    <h:outputText id="username" value="#{userBean.user.username}" style="text-align: right"></h:outputText>
+                    <h:outputLabel value="#{es_bundle.Label_Email}" for="email" />
+                    <h:outputText id="email" value="#{userBean.user.email}"></h:outputText>
+                    <h:outputLabel value="#{es_bundle.CreateUserDetailsLabel_name}" for="name" />
+                    <h:outputText id="name" value="#{userBean.details.name}"></h:outputText>
+                    <h:outputLabel value="#{es_bundle.CreateUserDetailsLabel_dniCif}" for="dniCif" />
+                    <h:outputText id="dniCif" value="#{userBean.details.dniCif}"></h:outputText>
+                    <h:outputLabel value="#{es_bundle.CreateUserDetailsLabel_address}" for="address" />
+                    <h:outputText id="address" value="#{userBean.details.address}"></h:outputText>
+                    <h:outputLabel value="#{es_bundle.CreateUserDetailsLabel_city}" for="city" />
+                    <h:outputText id="city" value="#{userBean.details.city}"></h:outputText>
+                    <h:outputLabel value="#{es_bundle.CreateUserDetailsLabel_province}" for="province" />
+                    <h:outputText id="province" value="#{userBean.details.province}"></h:outputText>
+                    <h:outputLabel value="#{es_bundle.CreateUserDetailsLabel_country}" for="country" />
+                    <h:outputText id="country" value="#{userBean.details.country}"></h:outputText>
+                    <h:outputLabel value="#{es_bundle.CreateUserDetailsLabel_latitude}" for="latitude" />
+                    <h:outputText id="latitude" value="#{userBean.details.latitude}"></h:outputText>
+                    <h:outputLabel value="#{es_bundle.CreateUserDetailsLabel_longitude}" for="longitude" />
+                    <h:outputText id="longitude" value="#{userBean.details.longitude}"></h:outputText>
+                    <h:outputLabel value="#{es_bundle.CreateUserDetailsLabel_dateOfRegistration}" for="dateOfRegistration" />
+                    <h:outputText id="dateOfRegistration" value="#{userBean.details.dateOfRegistration}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputLabel value="#{es_bundle.CreateUserDetailsLabel_leavingDate}" for="leavingDate" />
+                    <h:outputText id="leavingDate" value="#{userBean.details.dateOfRegistration}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:link outcome="/index" value="#{es_bundle.Index}"/>
+        </p:panel>
+    </ui:define>
+    <ui:define name="footer">
+        <ui:include src="/footer.xhtml"></ui:include>
+    </ui:define>
+</ui:composition>

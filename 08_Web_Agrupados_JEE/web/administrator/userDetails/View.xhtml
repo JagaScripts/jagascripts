@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UserDetailsViewDlg" widgetVar="UserDetailsViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{es_bundle.ViewUserDetailsTitle}">
+            <h:form id="UserDetailsViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{userDetailsController.selected != null}">
+                        <h:outputText value="#{es_bundle.ViewUserDetailsLabel_id}"/>
+                        <h:outputText value="#{userDetailsController.selected.id}" title="#{es_bundle.ViewUserDetailsTitle_id}"/>
+                        <h:outputText value="#{es_bundle.ViewUserDetailsLabel_name}"/>
+                        <h:outputText value="#{userDetailsController.selected.name}" title="#{es_bundle.ViewUserDetailsTitle_name}"/>
+                        <h:outputText value="#{es_bundle.ViewUserDetailsLabel_dniCif}"/>
+                        <h:outputText value="#{userDetailsController.selected.dniCif}" title="#{es_bundle.ViewUserDetailsTitle_dniCif}"/>
+                        <h:outputText value="#{es_bundle.ViewUserDetailsLabel_address}"/>
+                        <h:outputText value="#{userDetailsController.selected.address}" title="#{es_bundle.ViewUserDetailsTitle_address}"/>
+                        <h:outputText value="#{es_bundle.ViewUserDetailsLabel_city}"/>
+                        <h:outputText value="#{userDetailsController.selected.city}" title="#{es_bundle.ViewUserDetailsTitle_city}"/>
+                        <h:outputText value="#{es_bundle.ViewUserDetailsLabel_province}"/>
+                        <h:outputText value="#{userDetailsController.selected.province}" title="#{es_bundle.ViewUserDetailsTitle_province}"/>
+                        <h:outputText value="#{es_bundle.ViewUserDetailsLabel_country}"/>
+                        <h:outputText value="#{userDetailsController.selected.country}" title="#{es_bundle.ViewUserDetailsTitle_country}"/>
+                        <h:outputText value="#{es_bundle.ViewUserDetailsLabel_latitude}"/>
+                        <h:outputText value="#{userDetailsController.selected.latitude}" title="#{es_bundle.ViewUserDetailsTitle_latitude}"/>
+                        <h:outputText value="#{es_bundle.ViewUserDetailsLabel_longitude}"/>
+                        <h:outputText value="#{userDetailsController.selected.longitude}" title="#{es_bundle.ViewUserDetailsTitle_longitude}"/>
+                        <h:outputText value="#{es_bundle.ViewUserDetailsLabel_dateOfRegistration}"/>
+                        <h:outputText value="#{userDetailsController.selected.dateOfRegistration}" title="#{es_bundle.ViewUserDetailsTitle_dateOfRegistration}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{es_bundle.ViewUserDetailsLabel_leavingDate}"/>
+                        <h:outputText value="#{userDetailsController.selected.leavingDate}" title="#{es_bundle.ViewUserDetailsTitle_leavingDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{es_bundle.ViewUserDetailsLabel_applicationUsersId}"/>
+                        <h:outputText value="#{userDetailsController.selected.applicationUsersId}" title="#{es_bundle.ViewUserDetailsTitle_applicationUsersId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{es_bundle.Close}" onclick="UserDetailsViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UserDetailsCreateDlg" widgetVar="UserDetailsCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{es_bundle.CreateUserDetailsTitle}">
+            <h:form id="UserDetailsCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{userDetailsController.selected != null}">
+                        <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{userDetailsController.selected.id}" title="#{es_bundle.CreateUserDetailsTitle_id}" disabled="true"/>
+                        <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{userDetailsController.selected.name}" title="#{es_bundle.CreateUserDetailsTitle_name}" required="true" requiredMessage="#{es_bundle.CreateUserDetailsRequiredMessage_name}"/>
+                        <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_dniCif}" for="dniCif" />
+                        <p:inputText id="dniCif" value="#{userDetailsController.selected.dniCif}" title="#{es_bundle.CreateUserDetailsTitle_dniCif}" required="true" requiredMessage="#{es_bundle.CreateUserDetailsRequiredMessage_dniCif}"/>
+                        <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_address}" for="address" />
+                        <p:inputText id="address" value="#{userDetailsController.selected.address}" title="#{es_bundle.CreateUserDetailsTitle_address}" required="true" requiredMessage="#{es_bundle.CreateUserDetailsRequiredMessage_address}">
+                        <p:ajax event="change" update="longitude,latitude"   
+                                listener="#{userDetailsController.retrieveCoordinates()}" process="@this,address"/>
+                        </p:inputText>
+                        <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_city}" for="city" />
+                        <p:inputText id="city" value="#{userDetailsController.selected.city}" title="#{es_bundle.CreateUserDetailsTitle_city}" required="true" requiredMessage="#{es_bundle.CreateUserDetailsRequiredMessage_city}">
+                            <p:ajax event="change" update="longitude,latitude"   
+                                listener="#{userDetailsController.retrieveCoordinates()}" process="@this,city"/>
+                        </p:inputText>
+                        <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_province}" for="province" />
+                        <p:inputText id="province" value="#{userDetailsController.selected.province}" title="#{es_bundle.CreateUserDetailsTitle_province}" required="true" requiredMessage="#{es_bundle.CreateUserDetailsRequiredMessage_province}">
+                            <p:ajax event="change" update="longitude,latitude"   
+                                listener="#{userDetailsController.retrieveCoordinates()}" process="@this,province"/>
+                        </p:inputText>
+                        <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_country}" for="country" />
+                        <p:inputText id="country" value="#{userDetailsController.selected.country}" title="#{es_bundle.CreateUserDetailsTitle_country}" required="true" requiredMessage="#{es_bundle.CreateUserDetailsRequiredMessage_country}">
+                            <p:ajax event="change" update="longitude,latitude"   
+                                listener="#{userDetailsController.retrieveCoordinates()}" 
+                                process="@this,country"/>
+                        </p:inputText>
+                        <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_latitude}" for="latitude" />
+                        <p:outputLabel id="latitude" value="#{userDetailsController.mapBean.address.latitude}" title="#{es_bundle.CreateUserDetailsTitle_latitude}" />
+                        <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_longitude}" for="longitude" />
+                        <p:outputLabel id="longitude" value="#{userDetailsController.mapBean.address.longitude}" title="#{es_bundle.CreateUserDetailsTitle_longitude}" />
+                        <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_dateOfRegistration}" for="dateOfRegistration" />
+                        <p:calendar id="dateOfRegistration" pattern="MM/dd/yyyy" value="#{userDetailsController.selected.dateOfRegistration}" title="#{es_bundle.EditUserDetailsTitle_dateOfRegistration}" required="true" disabled="true"/>
+                        <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_leavingDate}" for="leavingDate" />
+                        <p:calendar id="leavingDate" pattern="MM/dd/yyyy" value="#{userDetailsController.selected.leavingDate}" title="#{es_bundle.EditUserDetailsTitle_leavingDate}" disabled="true"/>
+                        <p:outputLabel value="#{es_bundle.CreateUserDetailsLabel_applicationUsersId}" for="applicationUsersId" />
+                        <p:selectOneMenu id="applicationUsersId" value="#{userDetailsController.selected.applicationUsersId}" required="true" requiredMessage="#{es_bundle.EditUserDetailsRequiredMessage_applicationUsersId}">
+                            <f:selectItems value="#{usersController.itemsAvailableSelectOne}"
+                                           var="applicationUsersIdItem"
+                                           itemValue="#{applicationUsersIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{userDetailsController.create}" value="#{es_bundle.Save}" update="display,:UserDetailsListForm:datalist,:growl" oncomplete="handleSubmit(args,'UserDetailsCreateDialog');"/>
+                    <p:commandButton value="#{es_bundle.Cancel}" onclick="UserDetailsCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

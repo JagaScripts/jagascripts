@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CouponsCreateDlg" widgetVar="CouponsCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{es_bundle.CreateCouponsTitle}">
+            <h:form id="CouponsCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{couponsController.selected != null}">
+                        <p:outputLabel value="#{es_bundle.CreateCouponsLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{couponsController.selected.id}" title="#{es_bundle.CreateCouponsTitle_id}" disabled="true"/>
+                        <p:outputLabel value="#{es_bundle.CreateCouponsLabel_generatedCode}" for="generatedCode" />
+                        <p:inputText id="generatedCode" value="#{couponsController.selected.generatedCode}" title="#{es_bundle.CreateCouponsTitle_generatedCode}" disabled="true"/>
+                        <p:outputLabel value="#{es_bundle.CreateCouponsLabel_purchaseDatetime}" for="purchaseDatetime" />
+                        <p:calendar id="purchaseDatetime" pattern="MM/dd/yyyy HH:mm:ss" value="#{couponsController.selected.purchaseDatetime}" title="#{es_bundle.EditCouponsTitle_purchaseDatetime}" required="true" requiredMessage="#{es_bundle.EditCouponsRequiredMessage_purchaseDatetime}" showOn="button"/>
+                        <p:outputLabel value="#{es_bundle.CreateCouponsLabel_used}" for="used" />
+                        <p:selectBooleanCheckbox id="used" value="#{couponsController.selected.used}" required="true" requiredMessage="#{es_bundle.EditCouponsRequiredMessage_used}"/>
+                        <p:outputLabel value="#{es_bundle.CreateCouponsLabel_offersId}" for="offersId" />
+                        <p:selectOneMenu id="offersId" value="#{couponsController.selected.offersId}" required="true" requiredMessage="#{es_bundle.EditCouponsRequiredMessage_offersId}">
+                            <f:selectItems value="#{offersController.itemsAvailableSelectOne}"
+                                           var="offersIdItem"
+                                           itemValue="#{offersIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{es_bundle.CreateCouponsLabel_applicationUsersId}" for="applicationUsersId" />
+                        <p:selectOneMenu id="applicationUsersId" value="#{couponsController.selected.applicationUsersId}" required="true" requiredMessage="#{es_bundle.EditCouponsRequiredMessage_applicationUsersId}">
+                            <f:selectItems value="#{usersController.itemsAvailableSelectOne}"
+                                           var="applicationUsersIdItem"
+                                           itemValue="#{applicationUsersIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{couponsController.create}" value="#{es_bundle.Save}" update="display,:CouponsListForm:datalist,:growl" oncomplete="handleSubmit(args,'CouponsCreateDialog');"/>
+                    <p:commandButton value="#{es_bundle.Cancel}" onclick="CouponsCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

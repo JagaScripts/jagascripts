@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" template="../../template.xhtml">
+    <ui:define name="header">
+        <ui:include src="../../header.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="sideleft">
+        <ui:include src="../../sideleft.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="content">
+        <p:panel id="couponList">
+            <h:form id="CouponsListForm">
+                <p:panel>
+                    <p:dataTable id="datalist" value="#{couponsController.items}" var="item"
+                                 selectionMode="single" selection="#{couponsController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+                        <f:facet name="header">
+                            #{es_bundle.ListCouponsTitle}
+                        </f:facet>
+                        
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListCouponsTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListCouponsTitle_generatedCode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.generatedCode}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListCouponsTitle_purchaseDatetime}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.purchaseDatetime}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListCouponsTitle_used}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.used}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListCouponsTitle_offersId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.offersId}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{es_bundle.ListCouponsTitle_applicationUsersId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.applicationUsersId}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{es_bundle.Create}" actionListener="#{couponsController.prepareCreate}" update=":CouponsCreateForm" oncomplete="PF('CouponsCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{es_bundle.View}" update=":CouponsViewForm" oncomplete="PF('CouponsViewDialog').show()" disabled="#{empty couponsController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{es_bundle.Edit}" update=":CouponsEditForm" oncomplete="PF('CouponsEditDialog').show()" disabled="#{empty couponsController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{es_bundle.Delete}" actionListener="#{couponsController.destroy}" update=":growl,datalist" disabled="#{empty couponsController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </p:panel>
+ </ui:define>
+    <ui:define name="footer">
+        <ui:include src="../../footer.xhtml"></ui:include>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UsersEditDlg" widgetVar="UsersEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{es_bundle.EditUsersTitle}">
+            <h:form id="UsersEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{usersController.selected != null}">
+                        <p:outputLabel value="#{es_bundle.EditUsersLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{usersController.selected.id}" title="#{es_bundle.EditUsersTitle_id}" disabled="true"/>
+                        <p:outputLabel value="#{es_bundle.EditUsersLabel_username}" for="username" />
+                        <p:inputText id="username" value="#{usersController.selected.username}" title="#{es_bundle.EditUsersTitle_username}" required="true" requiredMessage="#{es_bundle.EditUsersRequiredMessage_username}"/>
+                        <p:outputLabel value="#{es_bundle.EditUsersLabel_password}" for="password" />
+                        <p:inputText id="password" value="#{usersController.selected.password}" title="#{es_bundle.EditUsersTitle_password}" required="true" requiredMessage="#{es_bundle.EditUsersRequiredMessage_password}"/>
+                        <p:outputLabel value="#{es_bundle.EditUsersLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{usersController.selected.email}" title="#{es_bundle.EditUsersTitle_email}" required="true" requiredMessage="#{es_bundle.EditUsersRequiredMessage_email}"/>
+                        <p:outputLabel value="#{es_bundle.EditUsersLabel_active}" for="active" />
+                        <p:selectBooleanCheckbox id="active" value="#{usersController.selected.active}" required="true" requiredMessage="#{es_bundle.EditUsersRequiredMessage_active}"/>
+                        <p:outputLabel value="#{es_bundle.EditUsersLabel_role}" for="role" />
+                        <p:selectOneMenu id="role" value="#{usersController.selected.role}" required="true" requiredMessage="#{es_bundle.EditUsersRequiredMessage_role}">
+                            <f:selectItem itemLabel="#{es_bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{rolesController.itemsAvailableSelectOne}"
+                                           var="roleItem"
+                                           itemValue="#{roleItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{usersController.update}" value="#{es_bundle.Save}" update="display,:UsersListForm:offersDatalist,:growl" oncomplete="handleSubmit(args, 'UsersEditDialog');"/>
+                    <p:commandButton  value="#{es_bundle.Cancel}" update="display,:UsersListForm:offersDatalist,:growl" onclick="UsersEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

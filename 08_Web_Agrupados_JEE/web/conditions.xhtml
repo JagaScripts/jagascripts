@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" template="/template.xhtml">
+    <ui:define name="header">
+        <ui:include src="/header.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="sideleft">
+        <ui:include src="/sideleft.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="content">
+        <h1>Condiciones de uso</h1>
+        <h3>En el sistema podremos distinguir 4 niveles de acceso:</h3> 
+        <h2>Cliente no registrado:</h2> 
+        <p>Podrá buscar ofertas por distintos criterios y navegar por la web visualizando datos básicos (¿Quiénes somos?, Condiciones de uso,...). Podrá añadir elementos al “carrito” de la compra, pero para finalizar un pedido se requerirá el rol de Cliente registrado.</p>
+        <h2>Cliente registrado:</h2> 
+        <p>Todo visitante necesitará registrarse (incluyendo detalles de usuario) para finalizar la compra de un cupón. El cliente registrado podrá modificar sus datos y realizar compras de cupones además de todas las funcionalidades del cliente no registrado.</p>
+        <h2>Negocio:</h2>  
+        <p>Será el que publique sus ofertas. Representará una empresa (y sus sedes) y será gestionado por una persona de la misma. Podrá revisar las ventas de cupones, desactivarlos a través del código generado (cuando el cliente final lo haya usado en su establecimiento) y crear, activar y desactivar ofertas. Además podrá gestionar los datos de su perfil.</p> 
+        <h2>Administrador:</h2>  
+        <p>Será el que gestione la página. Validará los negocios que soliciten el  registro y que deseen publicar sus ofertas en el sistema. Si todo es correcto los marcará como activos. También podrá gestionar los clientes que se hayan registrado para realizar una compra de una oferta (cupón).</p>
+    </ui:define>
+    <ui:define name="footer">
+        <ui:include src="/footer.xhtml"></ui:include>
+    </ui:define>
+</ui:composition>
