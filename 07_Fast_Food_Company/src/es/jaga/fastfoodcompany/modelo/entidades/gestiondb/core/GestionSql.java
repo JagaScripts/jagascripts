@@ -17,7 +17,11 @@ public class GestionSql {
     private static final String SERVER = "jdbc:mysql://sql309.main-hosting.eu:3306/";//"jdbc:mysql://localhost:3306/";
     private static final String DATABASE = "u110269477_fastfoodcompan";
     private static final String USERNAME = "u110269477_joseagalcan";//"root";
+<<<<<<< HEAD
     private static final String PASSWORD = "DB_PASSWORD_HIDDEN";
+=======
+    private static final String PASSWORD = "0Fastfoodcompany";
+>>>>>>> 662fea9baedbad13a03f8e1cae961a8019150a86
     private static Connection connection = null;
     
     /**
