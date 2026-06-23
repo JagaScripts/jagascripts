@@ -1,0 +1,47 @@
+{
+  "version": "1.1",
+  "description": "Marcas españolas y regionales para complementar Tranco",
+  "domains": [
+    "bbva.es",
+    "santander.es",
+    "caixabank.es",
+    "ing.es",
+    "bankinter.es",
+    "sabadell.es",
+    "unicaja.es",
+    "ibercaja.es",
+    "kutxabank.es",
+    "movistar.es",
+
+    "vodafone.es",
+    "orange.es",
+    "masmovil.es",
+    "yoigo.com",
+    "jazztel.com",
+
+    "elcorteingles.es",
+    "mercadona.es",
+    "pccomponentes.com",
+    "mediamarkt.es",
+    "fnac.es",
+
+    "aena.es",
+    "iberia.com",
+    "renfe.com",
+    "repsol.com",
+    "endesa.es",
+    "iberdrola.es",
+    "naturgy.es",
+    "mapfre.es",
+
+    "agenciatributaria.gob.es",
+    "seg-social.es",
+    "sepe.es",
+    "correos.es",
+    "policia.es",
+    "guardiacivil.es",
+    
+    "bizum.es",
+    "autopase.cl"
+  ]
+}

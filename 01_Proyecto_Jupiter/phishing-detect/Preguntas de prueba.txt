@@ -1,0 +1,34 @@
+Conceptos básicos
+
+- ¿Qué es el phishing?
+- ¿Cuál es el objetivo principal de un ataque de phishing?
+
+
+Técnicas de ataque
+
+- ¿Qué es el phishing de clonación?
+- ¿Cómo se usa el SMS en ataques de phishing?
+
+
+Protección y prevención
+
+- ¿Cómo puedo identificar un correo electrónico de phishing?
+- ¿Qué debo hacer si recibo un correo sospechoso de mi banco?
+
+
+Consecuencias
+
+- ¿Qué daños puede causar un ataque de phishing exitoso?
+- ¿Qué hago si ya he caído en un ataque de phishing?
+
+
+Contexto empresarial/institucional
+
+- ¿Qué recomendaciones da el CCN-CERT sobre el phishing?
+- ¿Cómo deben gestionar las organizaciones los correos maliciosos?
+
+
+Sin fuente de conocimiento
+
+- ¿Qué tiempo hace en Málaga?
+- ¿Cómo se llama el perro del hortelano?

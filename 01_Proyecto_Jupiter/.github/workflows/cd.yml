@@ -1,0 +1,75 @@
+name: CD Phishing-Detect
+
+on:
+  push:
+    branches: [main] # Se dispara solo cuando el código llega a la rama principal
+
+jobs:
+  build-push:
+    name: Build & Push to ECR
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # Crucial para OIDC
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Login to ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, tag and push image
+        id: build
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: phishing-detect
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          # Construimos usando la subcarpeta como contexto para que encuentre todo
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest ./phishing-detect
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+
+  deploy:
+    name: Deploy to ECS
+    runs-on: ubuntu-latest
+    needs: [build-push] # Espera a que la imagen esté subida
+    permissions:
+      id-token: write  # Obligatorio también en este job para autenticar con AWS
+      contents: read
+    steps:
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Deploy svc-app
+        run: |
+          aws ecs update-service \
+            --cluster phishing-detect \
+            --service svc-app \
+            --force-new-deployment \
+            --region ${{ secrets.AWS_REGION }}
+
+      - name: Deploy svc-worker
+        run: |
+          aws ecs update-service \
+            --cluster phishing-detect \
+            --service svc-worker \
+            --force-new-deployment \
+            --region ${{ secrets.AWS_REGION }}
+
+      - name: Wait for services to stabilize
+        run: |
+          aws ecs wait services-stable \
+            --cluster phishing-detect \
+            --services svc-app svc-worker \
+            --region ${{ secrets.AWS_REGION }}

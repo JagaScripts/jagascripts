@@ -1,0 +1,28 @@
+[project]
+name = "dialogflow-voice-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "azure-ai-documentintelligence>=1.0.2",
+    "azure-ai-formrecognizer>=3.3.3",
+    "azure-cognitiveservices-speech>=1.49.1",
+    "chromadb>=1.5.9",
+    "fastapi>=0.136.0",
+    "google-cloud-dialogflow>=2.47.0",
+    "langchain>=1.2.18",
+    "langchain-classic>=1.0.7",
+    "langchain-community>=0.4.1",
+    "langchain-google-genai>=4.2.2",
+    "langchain-huggingface>=1.2.2",
+    "langchain-openai>=1.2.1",
+    "langchain-text-splitters>=1.1.2",
+    "ngrok>=1.7.0",
+    "pypdf>=6.11.0",
+    "python-dotenv>=1.2.2",
+    "rasa>=0.1.1",
+    "requests>=2.33.1",
+    "sentence-transformers>=5.5.0",
+    "uvicorn>=0.45.0",
+]
