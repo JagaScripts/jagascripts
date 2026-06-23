@@ -1,9 +1,20 @@
-﻿# API REST FastAPI
+# 04. API REST de Alto Rendimiento (FastAPI)
 
-Este proyecto forma parte de mi portafolio profesional.
-Actualmente estoy trabajando en esta documentación, donde próximamente detallaré, al estilo de un caso de estudio:
+Este proyecto representa el núcleo de mis habilidades en ingeniería de backend y buenas prácticas de desarrollo en Python.
 
-- **🎯 Contexto del Negocio**: Qué problema resolvía este sistema.
-- **🛠️ Arquitectura y Stack**: Las decisiones técnicas, tecnologías y patrones que elegí para su implementación.
-- **🧠 Retos Técnicos**: Dificultades encontradas, cómo las analicé y qué soluciones apliqué.
-- **📈 Impacto y Resultados**: Qué beneficios tangibles se lograron con esta solución.
+## 🎯 Contexto del Negocio
+En arquitecturas de microservicios, el backend debe ser extremadamente rápido, estar bien documentado y ser tolerante a fallos. Se necesitaba construir una API RESTful capaz de gestionar operaciones concurrentes de manera eficiente, sirviendo como capa de datos segura.
+
+## 🛠️ Arquitectura y Stack
+*   **Framework:** FastAPI (Python), elegido por su alto rendimiento asíncrono y su generación automática de documentación.
+*   **Base de Datos:** SQL gestionada mediante ORM para abstraer la persistencia.
+*   **Metodología:** Clean Code, principios SOLID.
+*   **Documentación:** OpenAPI (Swagger) integrada de forma nativa.
+
+## 🧠 Retos Técnicos
+*   **Diseño de la API:** Garantizar que los endpoints siguieran los estándares RESTful reales (nomenclatura, códigos HTTP correctos).
+*   **Seguridad y Validación:** Implementar validación estricta de datos usando Pydantic para evitar inyecciones.
+*   **Rendimiento Asíncrono:** Gestionar correctamente las sesiones de base de datos dentro de rutas `async/await` sin bloquear el Event Loop.
+
+## 📈 Impacto y Resultados
+*   *(Sección en edición)* Una API robusta, autodescriptiva y altamente escalable, preparada para integraciones modernas.

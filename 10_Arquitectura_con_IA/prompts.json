@@ -1,0 +1,14 @@
+[
+  {
+    "ImageName": "\"diagrama_flujo_pares_final\"",
+    "Prompt": "\"Professional AWS cloud architecture diagram for PARES historical document portal. Clean white background, corporate style. Shows TWO clearly labeled sections:\\n\\nLEFT SECTION - \\\"Flujo de Usuario / Investigador\\\":\\n1. Browser icon labeled \\\"Investigador /\n<truncated 1290 bytes>",
+    "toolAction": "\"Generating flow diagram\"",
+    "toolSummary": "\"Flow diagram generation\""
+  },
+  {
+    "ImageName": "\"diagrama_arquitectura_pares_final\"",
+    "Prompt": "\"Professional AWS cloud architecture diagram, white background, enterprise style. Title: \\\"Arquitectura Cloud PARES - Amazon Web Services\\\". Shows 5 horizontal swim lanes / layers from top to bottom:\\n\\nLAYER 1 - \\\"Capa de Presentaci\u00f3n\\\" (light blue backg\n<truncated 1517 bytes>",
+    "toolAction": "\"Generating architecture diagram\"",
+    "toolSummary": "\"Architecture diagram generation\""
+  }
+]
